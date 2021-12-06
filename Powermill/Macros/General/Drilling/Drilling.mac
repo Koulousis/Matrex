@@ -9,7 +9,8 @@
 INCLUDE Layers.inc
 INCLUDE Features.inc
 INCLUDE Templates.inc
-INCLUDE "V:\Matrex\Powermill\Tools\ToolsForDrilling.inc"
+INCLUDE "V:\Matrex\Powermill\Tools\MatrexToolsForDrilling.inc"
+INCLUDE "V:\Matrex\Powermill\Tools\AlumatToolsForDrilling.inc"
 FUNCTION Main()  {
 	//Tamplate Parameters
 	//$TORNITURA
