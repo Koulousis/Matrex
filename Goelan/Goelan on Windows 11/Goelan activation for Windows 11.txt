@@ -1,0 +1,28 @@
+1) Write on Search bar "Apps and Features" and open it
+
+2)The apps on the list are listed with alphabetic order, must check if "Sentinel Protection Installer 7.4.0" exists to continue
+
+3)On Search write Device Manager and open it, go to "Other devices", there must appear an "Unknown device"
+
+4)Then must check if windows run on Test Mode, if yes a text "Testmode, Windows 11 Pro, Build 22000.co210604-1628" will appear on the right down
+  corner of the screen
+
+5)If above issues are fine, open cmd console as Administrator, on search write "cmd" and on the result on the right column, click
+  "Run as administrator"
+
+6)Write: "cd \users\user1\Downloads\Emulatore\Emulatore\MK64"
+  Write: "devcon remove root\Mkbus"
+   
+  a message that "1 device(s) were removed" must appear, after remove, restart the pc
+
+7)Open cmd as admin again
+  Write: "cd \users\user1\Downloads\Emulatore\Emulatore\MK64"
+  Write: "devcon install Mkbus.inf root\Mkbus"
+  
+  after installation is done, restart the pc
+
+8)Write on search bar "Device Manager" and open it, go to "System Devices", you must see "USB Mkbus" inside.
+
+9)Go to V:\tpm\Emulatore\Emulatore and run the file "5BAE_5FEA_0002-8003.reg"
+
+10)Restart pc, GOelan should work fine!

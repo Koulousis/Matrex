@@ -1,0 +1,5 @@
+$$ Say hello to the world
+print 'Hello PowerShape User'
+EDIT RIBBON RIBQATONTOP FALSE
+TOOLS EWINDOW SHOW
+$$ dbgmess activate editor:edrDragItem

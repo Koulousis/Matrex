@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<entry application="PowerShape" application_version="1" type="uiRIBBONBAR" version="1">
+
+  <entry type="uiQUICKACCESSTOOLBAR">
+    <entry base_widget="Ribbon.Home.Delete.Undo" recursive="true"/>
+    <entry base_widget="Ribbon.Home.Delete.Redo" recursive="true"/>
+    <entry base_widget="Ribbon.Home.Selection.SelMenu.SelPartial" recursive="true"/>
+    <entry base_widget="Ribbon.SolidTools.Manage.Selection.Continuous" recursive="true"/>
+    <entry base_widget="Ribbon.Wireframe.Create.LineMenu" recursive="true"/>
+    <entry base_widget="Ribbon.Wireframe.Create.ArcMenu" recursive="true"/>
+    <entry base_widget="Ribbon.Wireframe.Create.FilletMenu.ArcFilletTrim" recursive="true"/>
+    <entry base_widget="Ribbon.Wireframe.Create.CompCurve" recursive="true"/>
+    <entry base_widget="Ribbon.GeneralEdits.Limit.limitinteract" recursive="true"/>
+    <entry base_widget="Ribbon.GeneralEdits.Limit.limitcut" recursive="true"/>
+    <entry base_widget="Ribbon.GeneralEdits.Align.place" recursive="true"/>
+    <entry base_widget="Ribbon.GeneralEdits.Transform.Move" recursive="true"/>
+    <entry base_widget="Ribbon.GeneralEdits.Transform.Rotate" recursive="true"/>
+    <entry base_widget="Ribbon.GeneralEdits.Transform.Mirror" recursive="true"/>
+    <entry base_widget="Ribbon.GeneralEdits.Transform.Offset" recursive="true"/>
+    <entry base_widget="Ribbon.GeneralEdits.Project.project" recursive="true"/>
+    <entry base_widget="Ribbon.GeneralEdits.Transform.Pattern" recursive="true"/>
+    <entry base_widget="Ribbon.Solid.Create.Extrusion" recursive="true"/>
+    <entry base_widget="Ribbon.Solid.Create.FromItemsMenu.FromItems" recursive="true"/>
+    <entry type="uiPUSHBUTTON">
+      <resource key="uiLABELSTRING" value="Fillet"/>
+      <resource key="uiBITMAP" value="SOLIDFEATFILLET"/>
+      <resource key="uiCOMMAND" value="MACRO RUN &quot;V:\DELCAM\HOME\MACRO\Macro DELCAM\RAGGI SPUNTE.mac&quot;"/>
+      <resource key="uiUSERDATA" value="V:\DELCAM\HOME\MACRO\Macro DELCAM\RAGGI SPUNTE.mac"/>
+      <resource key="uiEDITTYPE" value="MacroButton"/>
+    </entry>
+    <entry base_widget="Ribbon.Solid.Feature.FilletMenu.Chamfer" recursive="true"/>
+    <entry base_widget="Ribbon.Solid.Feature.CutMenu.SolidCut" recursive="true"/>
+    <entry base_widget="Ribbon.Solid.Feature.Split" recursive="true"/>
+    <entry base_widget="Ribbon.SolidTools.Manage.Modify.HealFaces" recursive="true"/>
+    <entry base_widget="Ribbon.Solid.Feature.Addition" recursive="true"/>
+    <entry base_widget="Ribbon.Solid.Feature.Subtraction" recursive="true"/>
+    <entry base_widget="Ribbon.Solid.Feature.Intersection" recursive="true"/>
+    <entry base_widget="Ribbon.SolidTools.Manage.Modify.MergeFaces" recursive="true"/>
+    <entry base_widget="Ribbon.SolidTools.Manage.Modify.DivideFaces" recursive="true"/>
+    <entry base_widget="Ribbon.SolidTools.Manage.Modify.DraftFaces" recursive="true"/>
+    <entry base_widget="Ribbon.SolidTools.Manage.Modify.ReplaceFaces" recursive="true"/>
+    <entry base_widget="Ribbon.SolidTools.Manage.Convert.SolidDivide" recursive="true"/>
+    <entry base_widget="Ribbon.Surface.Create.Extrusion" recursive="true"/>
+    <entry base_widget="Ribbon.Surface.Create.SmartSurf" recursive="true"/>
+    <entry base_widget="Ribbon.Workplane.Create.WpMenu.WplaneSingle" recursive="true"/>
+    <entry base_widget="Ribbon.Workplane.Create.WpNormal" recursive="true"/>
+    <entry base_widget="Ribbon.Visualisation.Tools.SurfInspect" recursive="true"/>
+    <entry base_widget="Ribbon.View.Visibility.Unblank" recursive="true"/>
+    <entry base_widget="Ribbon.View.Visibility.BlankMenu.BlankSelected" recursive="true"/>
+    <entry base_widget="Ribbon.Visualisation.Format.Materials" recursive="true"/>
+    <entry base_widget="Ribbon.Home.Style.Colour" recursive="true"/>
+  </entry>
+
+  <entry type="uiCATEGORY">
+    <resource key="uiLABELSTRING" value="General"/>
+    <entry type="uiPANEL">
+      <resource key="uiLABELSTRING" value="Create"/>
+      <resource key="uiRIBPANELALIGNMENT" value="JustifyColumns"/>
+      <entry base_widget="Ribbon.Wireframe.Create.LineMenu" recursive="true"/>
+      <entry base_widget="Ribbon.Wireframe.Create.ArcMenu" recursive="true"/>
+      <entry base_widget="Ribbon.Wireframe.Create.CompCurve" recursive="true"/>
+      <entry base_widget="Ribbon.Wireframe.Create.FilletMenu.ArcFilletTrim" recursive="true"/>
+    </entry>
+    <entry type="uiPANEL">
+      <resource key="uiLABELSTRING" value="Edits"/>
+      <resource key="uiRIBPANELALIGNMENT" value="JustifyColumns"/>
+      <entry base_widget="Ribbon.GeneralEdits.Limit.limitinteract" recursive="true"/>
+      <entry base_widget="Ribbon.GeneralEdits.Limit.limitcut" recursive="true"/>
+      <entry base_widget="Ribbon.GeneralEdits.Align.place" recursive="true"/>
+      <entry base_widget="Ribbon.GeneralEdits.Transform.Move" recursive="true"/>
+      <entry base_widget="Ribbon.GeneralEdits.Transform.Rotate" recursive="true"/>
+      <entry base_widget="Ribbon.GeneralEdits.Transform.Mirror" recursive="true"/>
+      <entry base_widget="Ribbon.GeneralEdits.Transform.Offset" recursive="true"/>
+      <entry base_widget="Ribbon.GeneralEdits.Project.project" recursive="true"/>
+      <entry base_widget="Ribbon.GeneralEdits.Transform.Pattern" recursive="true"/>
+    </entry>
+    <entry type="uiPANEL">
+      <resource key="uiLABELSTRING" value="Solid"/>
+      <resource key="uiRIBPANELALIGNMENT" value="JustifyColumns"/>
+      <entry base_widget="Ribbon.Solid.Create.Extrusion" recursive="true"/>
+      <entry base_widget="Ribbon.Solid.Create.FromItemsMenu.FromItems" recursive="true"/>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="Fillet"/>
+        <resource key="uiBITMAP" value="SOLIDFEATFILLET"/>
+        <resource key="uiCOMMAND" value="MACRO RUN &quot;V:\DELCAM\HOME\MACRO\Macro DELCAM\RAGGI SPUNTE.mac&quot;"/>
+        <resource key="uiUSERDATA" value="V:\DELCAM\HOME\MACRO\Macro DELCAM\RAGGI SPUNTE.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+      <entry base_widget="Ribbon.Solid.Feature.FilletMenu.Chamfer" recursive="true"/>
+      <entry base_widget="Ribbon.Solid.Feature.CutMenu.SolidCut" recursive="true"/>
+      <entry base_widget="Ribbon.Solid.Feature.Split" recursive="true"/>
+      <entry base_widget="Ribbon.SolidTools.Manage.Modify.HealFaces" recursive="true"/>
+      <entry base_widget="Ribbon.Solid.Feature.Addition" recursive="true"/>
+      <entry base_widget="Ribbon.Solid.Feature.Subtraction" recursive="true"/>
+      <entry base_widget="Ribbon.Solid.Feature.Intersection" recursive="true"/>
+    </entry>
+    <entry type="uiPANEL">
+      <resource key="uiLABELSTRING" value="Modify Faces"/>
+      <resource key="uiRIBPANELALIGNMENT" value="JustifyColumns"/>
+      <entry base_widget="Ribbon.SolidTools.Manage.Modify.MergeFaces" recursive="true"/>
+      <entry base_widget="Ribbon.SolidTools.Manage.Modify.DivideFaces" recursive="true"/>
+      <entry base_widget="Ribbon.SolidTools.Manage.Selection.Continuous" recursive="true"/>
+      <entry base_widget="Ribbon.SolidTools.Manage.Modify.DraftFaces" recursive="true"/>
+      <entry base_widget="Ribbon.SolidTools.Manage.Modify.ReplaceFaces" recursive="true"/>
+      <entry base_widget="Ribbon.SolidTools.Manage.Convert.SolidDivide" recursive="true"/>
+    </entry>
+    <entry type="uiPANEL">
+      <resource key="uiLABELSTRING" value="Surfaces"/>
+      <resource key="uiRIBPANELALIGNMENT" value="JustifyColumns"/>
+      <entry base_widget="Ribbon.Surface.Create.Extrusion" recursive="true"/>
+      <entry base_widget="Ribbon.Surface.Create.SmartSurf" recursive="true"/>
+      <entry base_widget="Ribbon.SurfaceTools.Manage.Modify.Break" recursive="true"/>
+    </entry>
+    <entry type="uiPANEL">
+      <resource key="uiLABELSTRING" value="Workplane"/>
+      <resource key="uiRIBPANELALIGNMENT" value="JustifyColumns"/>
+      <entry base_widget="Ribbon.Workplane.Create.WpMenu.WplaneSingle" recursive="true"/>
+      <entry base_widget="Ribbon.Workplane.Create.WpNormal" recursive="true"/>
+      <entry base_widget="Ribbon.Workplane.Create.WpSelCentre" recursive="true"/>
+    </entry>
+    <entry type="uiPANEL">
+      <resource key="uiLABELSTRING" value="Measure"/>
+      <resource key="uiRIBPANELALIGNMENT" value="JustifyColumns"/>
+      <entry base_widget="Ribbon.Annotation.Dimension.DimParallel" recursive="true"/>
+      <entry base_widget="Ribbon.Annotation.Dimension.AnnDimAng.DimMinorAngle" recursive="true"/>
+      <entry base_widget="Ribbon.Visualisation.Tools.SurfInspect" recursive="true"/>
+      <entry base_widget="Ribbon.Annotation.Dimension.AnnDimRadius.DimRadius" recursive="true"/>
+      <entry base_widget="Ribbon.Annotation.Dimension.AnnDimRadius.DimDiameter" recursive="true"/>
+    </entry>
+    <entry type="uiPANEL">
+      <resource key="uiLABELSTRING" value="Tools"/>
+      <resource key="uiRIBPANELALIGNMENT" value="JustifyColumns"/>
+      <entry base_widget="Ribbon.Home.Selection.SelFilter" recursive="true"/>
+      <entry base_widget="Ribbon.View.Visibility.BlankMenu.BlankSelected" recursive="true"/>
+      <entry base_widget="Ribbon.View.Visibility.Unblank" recursive="true"/>
+      <entry base_widget="Ribbon.View.Cursor.CursorCrossHair" recursive="true"/>
+    </entry>
+    <entry type="uiPANEL">
+      <resource key="uiLABELSTRING" value="Colours"/>
+      <resource key="uiRIBPANELALIGNMENT" value="JustifyColumns"/>
+      <entry base_widget="Ribbon.Visualisation.Format.Materials" recursive="true"/>
+      <entry base_widget="Ribbon.Home.Style.Colour" recursive="true"/>
+    </entry>
+  </entry>
+
+  <entry type="uiCATEGORY">
+    <resource key="uiLABELSTRING" value="Macros"/>
+    <entry type="uiPANEL">
+      <resource key="uiLABELSTRING" value="Edits"/>
+      <resource key="uiRIBPANELALIGNMENT" value="JustifyColumns"/>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="Cut X"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\CUT X.ico"/>
+        <resource key="uiCOMMAND" value="MACRO RUN &quot;V:\DELCAM\HOME\MACRO\Macro DELCAM\DIVIDI_X.mac&quot;"/>
+        <resource key="uiUSERDATA" value="V:\DELCAM\HOME\MACRO\Macro DELCAM\DIVIDI_X.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="Cut Y"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\CUT Y.ico"/>
+        <resource key="uiCOMMAND" value="MACRO RUN &quot;V:\DELCAM\HOME\MACRO\Macro DELCAM\DIVIDI_Y.mac&quot;"/>
+        <resource key="uiUSERDATA" value="V:\DELCAM\HOME\MACRO\Macro DELCAM\DIVIDI_Y.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="Cut Z"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\CUT Z.ico"/>
+        <resource key="uiCOMMAND" value="MACRO RUN &quot;V:\DELCAM\HOME\MACRO\Macro DELCAM\DIVIDI_Z.mac&quot;"/>
+        <resource key="uiUSERDATA" value="V:\DELCAM\HOME\MACRO\Macro DELCAM\DIVIDI_Z.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="Join All"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\JOIN ALL.ico"/>
+        <resource key="uiCOMMAND" value="MACRO RUN &quot;V:\DELCAM\HOME\MACRO\Macro DELCAM\JOIN_ALL.mac&quot;"/>
+        <resource key="uiUSERDATA" value="V:\DELCAM\HOME\MACRO\Macro DELCAM\JOIN_ALL.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+    </entry>
+    <entry type="uiPANEL">
+      <resource key="uiLABELSTRING" value="Movements"/>
+      <resource key="uiRIBPANELALIGNMENT" value="JustifyColumns"/>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="-9"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\Z-.ico"/>
+        <resource key="uiCOMMAND" value="MACRO RUN &quot;V:\DELCAM\HOME\MACRO\Macro DELCAM\-9.mac&quot;"/>
+        <resource key="uiUSERDATA" value="V:\DELCAM\HOME\MACRO\Macro DELCAM\-9.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="-6"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\Z-.ico"/>
+        <resource key="uiCOMMAND" value="MACRO RUN &quot;V:\DELCAM\HOME\MACRO\Macro DELCAM\-6.mac&quot;"/>
+        <resource key="uiUSERDATA" value="V:\DELCAM\HOME\MACRO\Macro DELCAM\-6.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="-5"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\Z-.ico"/>
+        <resource key="uiCOMMAND" value="MACRO RUN &quot;V:\DELCAM\HOME\MACRO\Macro DELCAM\-5.mac&quot;"/>
+        <resource key="uiUSERDATA" value="V:\DELCAM\HOME\MACRO\Macro DELCAM\-5.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="-1"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\Z-.ico"/>
+        <resource key="uiCOMMAND" value="MACRO RUN &quot;V:\DELCAM\HOME\MACRO\Macro DELCAM\-1.mac&quot;"/>
+        <resource key="uiUSERDATA" value="V:\DELCAM\HOME\MACRO\Macro DELCAM\-1.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="-0.5"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\Z-.ico"/>
+        <resource key="uiCOMMAND" value="MACRO RUN &quot;V:\DELCAM\HOME\MACRO\Macro DELCAM\-0,5.mac&quot;"/>
+        <resource key="uiUSERDATA" value="V:\DELCAM\HOME\MACRO\Macro DELCAM\-0,5.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="+0.5"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\Z+.ico"/>
+        <resource key="uiCOMMAND" value="MACRO RUN &quot;V:\DELCAM\HOME\MACRO\Macro DELCAM\+0,5.mac&quot;"/>
+        <resource key="uiUSERDATA" value="V:\DELCAM\HOME\MACRO\Macro DELCAM\+0,5.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="+1"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\Z+.ico"/>
+        <resource key="uiCOMMAND" value="MACRO RUN &quot;V:\DELCAM\HOME\MACRO\Macro DELCAM\+1.mac&quot;"/>
+        <resource key="uiUSERDATA" value="V:\DELCAM\HOME\MACRO\Macro DELCAM\+1.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="+5"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\Z+.ico"/>
+        <resource key="uiCOMMAND" value="MACRO RUN &quot;V:\DELCAM\HOME\MACRO\Macro DELCAM\+5.mac&quot;"/>
+        <resource key="uiUSERDATA" value="V:\DELCAM\HOME\MACRO\Macro DELCAM\+5.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="+6"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\Z+.ico"/>
+        <resource key="uiCOMMAND" value="MACRO RUN &quot;V:\DELCAM\HOME\MACRO\Macro DELCAM\+6.mac&quot;"/>
+        <resource key="uiUSERDATA" value="V:\DELCAM\HOME\MACRO\Macro DELCAM\+6.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="+9"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\Z+.ico"/>
+        <resource key="uiCOMMAND" value="MACRO RUN &quot;V:\DELCAM\HOME\MACRO\Macro DELCAM\+9.mac&quot;"/>
+        <resource key="uiUSERDATA" value="V:\DELCAM\HOME\MACRO\Macro DELCAM\+9.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+    </entry>
+    <entry type="uiPANEL">
+      <resource key="uiLABELSTRING" value="Features"/>
+      <resource key="uiRIBPANELALIGNMENT" value="JustifyColumns"/>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="Smusso Entrata"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\SMUSSO 30.ico"/>
+        <resource key="uiCOMMAND" value="MACRO RUN &quot;V:\DELCAM\HOME\MACRO\Macro DELCAM\SCAVO SMUSSI 30°.mac&quot;"/>
+        <resource key="uiUSERDATA" value="V:\DELCAM\HOME\MACRO\Macro DELCAM\SCAVO SMUSSI 30°.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="Composite Curve All"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\COMPOSITE CURVE.ico"/>
+        <resource key="uiCOMMAND" value="MACRO RUN &quot;V:\DELCAM\HOME\MACRO\Macro DELCAM\CURVA COMPOSTA.mac&quot;"/>
+        <resource key="uiUSERDATA" value="V:\DELCAM\HOME\MACRO\Macro DELCAM\CURVA COMPOSTA.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="Cut Inside"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\CUT INSIDE.ico"/>
+        <resource key="uiCOMMAND" value="MACRO RUN &quot;V:\DELCAM\HOME\MACRO\Macro DELCAM\SCAVO PASSANTE ESTERNO.mac&quot;"/>
+        <resource key="uiUSERDATA" value="V:\DELCAM\HOME\MACRO\Macro DELCAM\SCAVO PASSANTE ESTERNO.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="Cut Outside"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\CUT  OUTSIDE.ico"/>
+        <resource key="uiCOMMAND" value="MACRO RUN &quot;V:\DELCAM\HOME\MACRO\Macro DELCAM\SCAVO PASSANTE.mac&quot;"/>
+        <resource key="uiUSERDATA" value="V:\DELCAM\HOME\MACRO\Macro DELCAM\SCAVO PASSANTE.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="Chock"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\CHOCK.ico"/>
+        <resource key="uiCOMMAND" value="MACRO RUN &quot;V:\DELCAM\HOME\MACRO\Macro DELCAM\CHOCK.mac&quot;"/>
+        <resource key="uiUSERDATA" value="V:\DELCAM\HOME\MACRO\Macro DELCAM\CHOCK.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+    </entry>
+    <entry type="uiPANEL">
+      <resource key="uiLABELSTRING" value="Zone Mandrel"/>
+      <resource key="uiRIBPANELALIGNMENT" value="JustifyColumns"/>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="Seperation"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\ZONE CUT.ico"/>
+        <resource key="uiCOMMAND" value="MACRO RUN &quot;V:\Macros_matrex\Notepad++\POWERSHAPE\ZONE_CUT.mac&quot;"/>
+        <resource key="uiUSERDATA" value="V:\Macros_matrex\Notepad++\POWERSHAPE\ZONE_CUT.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="Creation"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\ZONE SETUP.ico"/>
+        <resource key="uiCOMMAND" value="MACRO RUN &quot;V:\Macros_matrex\Notepad++\POWERSHAPE\ZONE_SETUP.mac&quot;"/>
+        <resource key="uiUSERDATA" value="V:\Macros_matrex\Notepad++\POWERSHAPE\ZONE_SETUP.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+    </entry>
+    <entry type="uiPANEL">
+      <resource key="uiLABELSTRING" value="Zone Matrice"/>
+      <resource key="uiRIBPANELALIGNMENT" value="JustifyColumns"/>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="Seperation"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\ZONE CUT.ico"/>
+        <resource key="uiCOMMAND" value="MACRO RUN &quot;V:\Macros_matrex\Notepad++\POWERSHAPE\ZONE_CUT_MATRICE.mac&quot;"/>
+        <resource key="uiUSERDATA" value="V:\Macros_matrex\Notepad++\POWERSHAPE\ZONE_CUT_MATRICE.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="Creation"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\ZONE SETUP.ico"/>
+        <resource key="uiCOMMAND" value="MACRO RUN &quot;V:\Macros_matrex\Notepad++\POWERSHAPE\ZONE_SETUP_MATRICE.mac&quot;"/>
+        <resource key="uiUSERDATA" value="V:\Macros_matrex\Notepad++\POWERSHAPE\ZONE_SETUP_MATRICE.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+    </entry>
+    <entry type="uiPANEL">
+      <resource key="uiLABELSTRING" value="Drills"/>
+      <resource key="uiRIBPANELALIGNMENT" value="JustifyColumns"/>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="Puntines"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\PUNTINA.ico"/>
+        <resource key="uiCOMMAND" value="MACRO RUN &quot;V:\Macros_matrex\Notepad++\POWERSHAPE\PUNTINA_SETUP.mac&quot;"/>
+        <resource key="uiUSERDATA" value="V:\Macros_matrex\Notepad++\POWERSHAPE\PUNTINA_SETUP.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+    </entry>
+    <entry type="uiPANEL">
+      <resource key="uiLABELSTRING" value="Powermill Transfer"/>
+      <resource key="uiRIBPANELALIGNMENT" value="JustifyColumns"/>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="MD/ALL"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\MD-ALL EXPORT.ico"/>
+        <resource key="uiCOMMAND" value="MACRO RUN &quot;V:\DELCAM\HOME\MACRO\Macro DELCAM\TRASFERIMENTO POWERMILL.mac&quot;"/>
+        <resource key="uiUSERDATA" value="V:\DELCAM\HOME\MACRO\Macro DELCAM\TRASFERIMENTO POWERMILL.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="MT/MP"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\MT-MP EXPORT.ico"/>
+        <resource key="uiCOMMAND" value="MACRO RUN &quot;V:\Macros_matrex\Notepad++\POWERSHAPE\MT EXPORT.mac&quot;"/>
+        <resource key="uiUSERDATA" value="V:\Macros_matrex\Notepad++\POWERSHAPE\MT EXPORT.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="3P/SM"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\3P-SM EXPORT.ico"/>
+        <resource key="uiCOMMAND" value="MACRO RUN &quot;V:\Macros_matrex\Notepad++\POWERSHAPE\MINIMUM 3P-SM RADIUS.mac&quot;"/>
+        <resource key="uiUSERDATA" value="V:\Macros_matrex\Notepad++\POWERSHAPE\MINIMUM 3P-SM RADIUS.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+    </entry>
+    <entry type="uiPANEL">
+      <resource key="uiLABELSTRING" value="Save and Export"/>
+      <resource key="uiRIBPANELALIGNMENT" value="JustifyColumns"/>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="Save"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\SAVE SOLID.ico"/>
+        <resource key="uiCOMMAND" value="RUNADDIN Save Solid"/>
+        <resource key="uiEDITTYPE" value="CommandButton"/>
+      </entry>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="PDF"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\EXPORT PDF.ico"/>
+        <resource key="uiCOMMAND" value="MACRO RUN &quot;V:\Macros_matrex\Notepad++\POWERSHAPE\EXPORT PDF.mac&quot;"/>
+        <resource key="uiUSERDATA" value="V:\Macros_matrex\Notepad++\POWERSHAPE\EXPORT PDF.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+    </entry>
+  </entry>
+
+</entry>

@@ -1,0 +1,71 @@
+//		       POWERMILL2 MAIN STARTUP MACRO
+//
+//  This is the macro which actually starts PowerMILL.
+//
+// Modification History
+//
+// DICC  Who When     What   
+// ----- --- -------- -----------------------------------------------
+// 14505 CLH 27/06/95 Switch off long DEBUG checks by default
+// 14538 CLH 04/07/95 Renamed 'pmstartup.mac' from 'fwork.mac'
+// 15463 CLH 02/01/96 Add EDIT TRICACHE 20000
+// 15561 CLH 24/01/96 Add a FORM ISDEMO command at the end of macro
+// 16191 CLH 11/06/96 Added examples to macro search path
+// 17298 CLH 13/01/97 Remove EDIT TRICACHE command
+// nnnnn CLH 21/02/97 Added PMTESTDELIM comment for automatic testing
+// 20017 MH  18/09/97 Raise viewing toolbar
+// 24068 CLH 22/06/98 Add a Windows friendly path (~/pmill2)
+// 25695 CLH 22/10/98 Remove examples macro path, now done in code
+// 26619 LJP 28/01/99 hitrad is pixels not millemeters better result
+//                    if value changed from 1.0 to 5.0
+// 28044 CLH 10/06/99 Raise about form before running pmuser macro
+// 28076 CLH 14/06/99 Undo above change - powersolution#85
+// 28219 NRP 25/06/99 Use a sensible arctol - 0.1 instead of 0.001.
+// 33960 CNJ 12/10/00 Use graduated background by default 
+// 39036 NRP 10/12/01 Added ~/pmill4 and ~/.pmill4 to the search path.
+//                    Made search paths volatile.
+// 39401 NRP 15/01/02 Tweak the search paths (add pmill4 after pmill2).
+// 39544 NRP 23/01/02 Remove the command that enabled the graduated background.
+// 39683 NRP 01/02/02 Enable the graduated background in here after all!
+// 52385 NRP 09/08/04 Don't enable the graduated background - view background 
+//                    colours are now customisable.
+// 68041 NAA 30/10/07 Removed code to set arctol and hitrad
+//                    as it should be accessed only through registry.
+//-------------------------------------------------------------------
+powermill
+// Ensure the menus are visible now before proceeding
+wait form
+//
+// Incase this is a debug version switch off the time consuming checks
+//
+DEBUG MTFAST OFF
+DEBUG V3LITD OFF
+//
+// Raise viewing toolbar 
+//
+TOOLBAR VIEWING RAISE
+//
+//
+// PMILLTESTDELIM  - Delimiter used by PowerMILL Development test system
+//
+// Add a search path to find users startup macro
+path add volatile '~/.pmill2' quit
+path add volatile '~/pmill2' quit
+path add volatile '~/.pmill4' quit
+path add volatile '~/pmill4' quit
+//
+// Run users macro (A dummy is supplied in lib/macros)
+//
+macro pmuser
+//
+// Now run a local macro which should (or maybe) be in current directory
+//
+macro pmlocal
+//
+// Pop a warning dialog if PowerMILL is in Demo Mode. The form is raised 
+// via a command so that a rolling demo etc. could be started from 'pmuser.mac' 
+// or 'pmlocal.mac' without the need to respond to a form first. 
+//
+form isdemo
+//
+// That's it

@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<entry application="PowerMill" application_version="1" type="uiRIBBONBAR" version="1">
+
+  <entry type="uiQUICKACCESSTOOLBAR">
+    <entry base_widget="Ribbon.BackstageView.Open" recursive="true"/>
+    <entry base_widget="Ribbon.BackstageView.Save_Project" recursive="true"/>
+    <entry base_widget="Ribbon.Home.Setup.CreateWP" recursive="true"/>
+    <entry type="uiPUSHBUTTON">
+      <resource key="uiBITMAP" value="ADDBLOCK"/>
+      <resource key="uiCOMMAND" value="MACRO &quot;C:\Users\Aris\Desktop\ENTRATA.mac&quot;"/>
+      <resource key="uiUSERDATA" value="C:\Users\Aris\Desktop\ENTRATA.mac"/>
+      <resource key="uiEDITTYPE" value="MacroButton"/>
+    </entry>
+  </entry>
+
+  <entry type="uiCATEGORY">
+    <resource key="uiLABELSTRING" value="Macros"/>
+    <entry type="uiPANEL">
+      <resource key="uiLABELSTRING" value="Templates"/>
+      <resource key="uiDYNAMICHELP" value="Pre-saved files with ready paths"/>
+      <resource key="uiRIBPANELALIGNMENT" value="JustifyColumns"/>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="MD/ALL"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\MD TEMPLATE.ico"/>
+        <resource key="uiCOMMAND" value="MACRO &quot;V:\DELCAM\HOME\MACRO\MACRO MIL\EPC UPDATED.mac&quot;"/>
+        <resource key="uiDYNAMICHELP" value="Import pre-saved file for MD/ALL"/>
+        <resource key="uiUSERDATA" value="V:\DELCAM\HOME\MACRO\MACRO MIL\EPC UPDATED.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="MT/MP"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\MT TEMPLATE.ico"/>
+        <resource key="uiCOMMAND" value="MACRO &quot;V:\DELCAM\HOME\MACRO\MACRO MIL\MT.mac&quot;"/>
+        <resource key="uiDYNAMICHELP" value="Import pre-saved file for MT/MP"/>
+        <resource key="uiUSERDATA" value="V:\DELCAM\HOME\MACRO\MACRO MIL\MT.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="3P/SM"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\3P TEMPLATE.ico"/>
+        <resource key="uiCOMMAND" value="MACRO &quot;V:\DELCAM\HOME\MACRO\MACRO MIL\3P.mac&quot;"/>
+        <resource key="uiDYNAMICHELP" value="Import pre-saved file for 3P/SM"/>
+        <resource key="uiUSERDATA" value="V:\DELCAM\HOME\MACRO\MACRO MIL\3P.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="FORI"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\FORI TEMPLATE.ico"/>
+        <resource key="uiCOMMAND" value="MACRO &quot;V:\DELCAM\HOME\MACRO\MACRO MIL\FORI.mac&quot;"/>
+        <resource key="uiDYNAMICHELP" value="Import pre-saved file for FORI"/>
+        <resource key="uiUSERDATA" value="V:\DELCAM\HOME\MACRO\MACRO MIL\FORI.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+    </entry>
+    <entry type="uiPANEL">
+      <resource key="uiLABELSTRING" value="Project info"/>
+      <resource key="uiRIBPANELALIGNMENT" value="JustifyColumns"/>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="Insert Name"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\PROJECT NAME.ico"/>
+        <resource key="uiCOMMAND" value="MACRO &quot;V:\Macros_matrex\Main Macros\TORNIO.mac&quot;"/>
+        <resource key="uiDYNAMICHELP" value="Insert project full name (Customer,Code,Part)"/>
+        <resource key="uiUSERDATA" value="V:\Macros_matrex\Main Macros\TORNIO.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+      <entry type="uiTEXTLABEL">
+        <resource key="uiLABELSTRING" value="Project"/>
+        <resource key="uiDYNAMICHELP" value="Project full name"/>
+        <resource key="uiEXPRESSION" value="$DIENAME"/>
+        <resource key="uiEDITTYPE" value="ExpressionField"/>
+      </entry>
+      <entry type="uiTEXTLABEL">
+        <resource key="uiLABELSTRING" value="Barcode"/>
+        <resource key="uiDYNAMICHELP" value="Number of tornitura"/>
+        <resource key="uiEXPRESSION" value="$TORNITURA"/>
+        <resource key="uiEDITTYPE" value="ExpressionField"/>
+      </entry>
+    </entry>
+    <entry type="uiPANEL">
+      <resource key="uiLABELSTRING" value="MD/ALL"/>
+      <resource key="uiRIBPANELALIGNMENT" value="JustifyColumns"/>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="Workplane"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\EDITS.ico"/>
+        <resource key="uiCOMMAND" value="MACRO &quot;V:\Macros_matrex\Main Macros\PRE EDITS.mac&quot;"/>
+        <resource key="uiDYNAMICHELP" value="Create workplane and setup stock model"/>
+        <resource key="uiUSERDATA" value="V:\Macros_matrex\Main Macros\PRE EDITS.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="Bountaries"/>
+        <resource key="uiBITMAP" value="BOUNDARY__FUSION"/>
+        <resource key="uiCOMMAND" value="MACRO &quot;V:\Macros_matrex\Main Macros\BOUNTARIES.mac&quot;"/>
+        <resource key="uiDYNAMICHELP" value="Create all the needed boundaries for the toolpaths"/>
+        <resource key="uiUSERDATA" value="V:\Macros_matrex\Main Macros\BOUNTARIES.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="Entrata"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\ENTRATA.ico"/>
+        <resource key="uiCOMMAND" value="MACRO &quot;V:\Macros_matrex\Main Macros\ENTRATA.mac&quot;"/>
+        <resource key="uiDYNAMICHELP" value="Deploy toolpaths for Entrata"/>
+        <resource key="uiUSERDATA" value="V:\Macros_matrex\Main Macros\ENTRATA.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="Ghost Torn"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\TORN GHOST.ico"/>
+        <resource key="uiCOMMAND" value="MACRO &quot;V:\Macros_matrex\Main Macros\N1.mac&quot;"/>
+        <resource key="uiDYNAMICHELP" value="Deploy toolpaths for entrata finishing"/>
+        <resource key="uiUSERDATA" value="V:\Macros_matrex\Main Macros\N1.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="Clear Torn"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\CLEAR TORN.ico"/>
+        <resource key="uiCOMMAND" value="MACRO &quot;V:\Macros_matrex\Main Macros\TORNITURA.mac&quot;"/>
+        <resource key="uiDYNAMICHELP" value="Deploy toolpaths to mill nocciolo"/>
+        <resource key="uiUSERDATA" value="V:\Macros_matrex\Main Macros\TORNITURA.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="NRG"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\NRG.ico"/>
+        <resource key="uiCOMMAND" value="MACRO &quot;V:\Macros_matrex\Main Macros\NOCCIOLO RAZZE GOCCE.mac&quot;"/>
+        <resource key="uiDYNAMICHELP" value="Deploy toolpaths to mill nocciolo,razze,gocce"/>
+        <resource key="uiUSERDATA" value="V:\Macros_matrex\Main Macros\NOCCIOLO RAZZE GOCCE.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="Entrata Finishing"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\ENTRATA FIN.ico"/>
+        <resource key="uiCOMMAND" value="MACRO &quot;V:\Macros_matrex\Main Macros\GOELAN ENTRATA.mac&quot;"/>
+        <resource key="uiDYNAMICHELP" value="Deploy toolpaths for entrata finishing"/>
+        <resource key="uiUSERDATA" value="V:\Macros_matrex\Main Macros\GOELAN ENTRATA.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="Spine and Viti"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\SPINE VITI.ico"/>
+        <resource key="uiCOMMAND" value="MACRO &quot;V:\Macros_matrex\Main Macros\SPINE VITI.mac&quot;"/>
+        <resource key="uiDYNAMICHELP" value="Deploy toolpaths for spine and viti"/>
+        <resource key="uiUSERDATA" value="V:\Macros_matrex\Main Macros\SPINE VITI.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="Pozzeto Finishing"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\POZZETO FIN.ico"/>
+        <resource key="uiCOMMAND" value="MACRO &quot;V:\Macros_matrex\Main Macros\POZZETO FIN.mac&quot;"/>
+        <resource key="uiDYNAMICHELP" value="Deploy toolpaths for pozzeto side finishing"/>
+        <resource key="uiUSERDATA" value="V:\Macros_matrex\Main Macros\POZZETO FIN.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="Zone"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\ZONE SETUP.ico"/>
+        <resource key="uiCOMMAND" value="MACRO &quot;V:\Macros_matrex\Main Macros\ZONE.mac&quot;"/>
+        <resource key="uiDYNAMICHELP" value="Deploy toolpaths for zone"/>
+        <resource key="uiUSERDATA" value="V:\Macros_matrex\Main Macros\ZONE.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="Fill NC Programs"/>
+        <resource key="uiBITMAP" value="SSNCPROGRAM"/>
+        <resource key="uiCOMMAND" value="MACRO &quot;V:\Macros_matrex\NMain Macros\FILL NC PROGRAMS.mac&quot;"/>
+        <resource key="uiDYNAMICHELP" value="Transfers folders to spicified NC programs and rename them"/>
+        <resource key="uiUSERDATA" value="V:\Macros_matrex\NMain Macros\FILL NC PROGRAMS.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="Foro"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\FORO.ico"/>
+        <resource key="uiCOMMAND" value="MACRO &quot;V:\Macros_matrex\Main Macros\FORI.mac&quot;"/>
+        <resource key="uiDYNAMICHELP" value="Deploy some stantards to build foro programs"/>
+        <resource key="uiUSERDATA" value="V:\Macros_matrex\Main Macros\FORI.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="Foro with Stock"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\FORO with stock.ico"/>
+        <resource key="uiCOMMAND" value="MACRO &quot;V:\Macros_matrex\Main Macros\FORI WITH STOCK.mac&quot;"/>
+        <resource key="uiDYNAMICHELP" value="Using milled stock to build foro programs"/>
+        <resource key="uiUSERDATA" value="V:\Macros_matrex\Main Macros\FORI WITH STOCK.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+    </entry>
+    <entry type="uiPANEL">
+      <resource key="uiLABELSTRING" value="MT/MP"/>
+      <resource key="uiRIBPANELALIGNMENT" value="JustifyColumns"/>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="Camera"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\CAMERA.ico"/>
+        <resource key="uiCOMMAND" value="MACRO &quot;V:\Macros_matrex\Main Macros\MT.mac&quot;"/>
+        <resource key="uiDYNAMICHELP" value="Deploy toolpaths to machine whole camera side"/>
+        <resource key="uiUSERDATA" value="V:\Macros_matrex\Main Macros\MT.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="Scarico"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\SCARICO.ico"/>
+        <resource key="uiCOMMAND" value="MACRO &quot;V:\Macros_matrex\Main Macros\SCARICO.mac&quot;"/>
+        <resource key="uiDYNAMICHELP" value="Deploy toolpaths to machine whole scarico side"/>
+        <resource key="uiUSERDATA" value="V:\Macros_matrex\Main Macros\SCARICO.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="Erosion Drill"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\EROSION DRILL.ico"/>
+        <resource key="uiCOMMAND" value="MACRO &quot;V:\Macros_matrex\Main Macros\EROSION HOLE.mac&quot;"/>
+        <resource key="uiDYNAMICHELP" value="Deploy toolpaths to machine whole scarico side"/>
+        <resource key="uiUSERDATA" value="V:\Macros_matrex\Main Macros\EROSION HOLE.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+    </entry>
+    <entry type="uiPANEL">
+      <resource key="uiLABELSTRING" value="3P/SM"/>
+      <resource key="uiRIBPANELALIGNMENT" value="JustifyColumns"/>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="Uscita Impronta"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\3PSM.ico"/>
+        <resource key="uiCOMMAND" value="MACRO &quot;V:\Macros_matrex\Main Macros\3P.mac&quot;"/>
+        <resource key="uiDYNAMICHELP" value="Deploy toolpaths to mill both sides"/>
+        <resource key="uiUSERDATA" value="V:\Macros_matrex\Main Macros\3P.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+    </entry>
+    <entry type="uiPANEL">
+      <resource key="uiLABELSTRING" value="General"/>
+      <resource key="uiRIBPANELALIGNMENT" value="JustifyColumns"/>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="Unlock"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\CLAIM PROJECT.ico"/>
+        <resource key="uiCOMMAND" value="PROJECT CLAIM"/>
+        <resource key="uiDYNAMICHELP" value="Creates a Read-Only project, editable"/>
+        <resource key="uiEDITTYPE" value="CommandButton"/>
+      </entry>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="Save Directly"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\SAVE.ico"/>
+        <resource key="uiCOMMAND" value="MACRO &quot;V:/Macros_matrex/Support/VALUE SETUP.mac&quot;"/>
+        <resource key="uiDYNAMICHELP" value="Creates a Read-Only project, editable"/>
+        <resource key="uiUSERDATA" value="V:/Macros_matrex/Support/VALUE SETUP.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="Kill Toolpath"/>
+        <resource key="uiBITMAP" value="DELACTSTATE"/>
+        <resource key="uiCOMMAND" value="MACRO &quot;V:\Macros_matrex\Shortcuts\DELETE STOCKED TPS.mac&quot;"/>
+        <resource key="uiDYNAMICHELP" value="Immediately delete toolpaths, without the need to delete patters,etc"/>
+        <resource key="uiUSERDATA" value="V:\Macros_matrex\Shortcuts\DELETE STOCKED TPS.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="Detailed Scarico"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\VIEW SCARICO.ico"/>
+        <resource key="uiCOMMAND" value="MACRO &quot;V:\Macros_matrex\Support\VIEW SCARICO.mac&quot;"/>
+        <resource key="uiDYNAMICHELP" value="Visualize Scarico with high resolusion"/>
+        <resource key="uiUSERDATA" value="V:\Macros_matrex\Support\VIEW SCARICO.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="Tasca"/>
+        <resource key="uiBITMAP" value="NC_STRATEGY__FEATURE_AREA_CLEAR"/>
+        <resource key="uiCOMMAND" value="MACRO &quot;V:\Macros_matrex\Support\TASCA.mac&quot;"/>
+        <resource key="uiDYNAMICHELP" value="Deploy Tasca toolpaths"/>
+        <resource key="uiUSERDATA" value="V:\Macros_matrex\Support\TASCA.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="Contornatura"/>
+        <resource key="uiBITMAP" value="NC_STRATEGY__FEATURE_PROFILE"/>
+        <resource key="uiCOMMAND" value="MACRO &quot;V:\Macros_matrex\Support\TASCA.mac&quot;"/>
+        <resource key="uiDYNAMICHELP" value="Deploy Contornatura toolpaths"/>
+        <resource key="uiUSERDATA" value="V:\Macros_matrex\Support\TASCA.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
+    </entry>
+  </entry>
+
+</entry>
