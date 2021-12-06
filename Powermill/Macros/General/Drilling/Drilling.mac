@@ -12,6 +12,7 @@ INCLUDE Templates.inc
 INCLUDE "V:\Master Files\Matrex\Powermill\Tools\ToolsForDrilling.inc"
 INCLUDE "V:\Master Files\Alumat\Powermill\Tools\ToolsForDrilling.inc"
 FUNCTION Main()  {
+	UNDRAW STOCKMODEL ALL
 	//Tamplate Parameters
 	//$TORNITURA
 	
