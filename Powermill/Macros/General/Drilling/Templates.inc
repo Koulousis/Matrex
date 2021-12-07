@@ -13,11 +13,11 @@ FUNCTION SPINE_POZZETO_D12_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $MA
 	
 	//List the Toolpaths
 	IF $ALLARGATORE AND $MANUAL_ALLIGN {
-		//SGR Procedure                Toolpath            Index  Tool
-		//                              10        20        30
-		//                     012345678901234567890123456789012345678
-		STRING $DRILL       = "SPINE POZZETO D12 DRILL       2    T228"
-		STRING $SMUSSO      = "SPINE POZZETO D12 SMUSSO      1    T806"
+		//SGR Procedure                Toolpath            Index       Tool
+		//                              10        20        30        40        50
+		//                     012345678901234567890123456789012345678901234567890
+		STRING $DRILL       = "SPINE POZZETO D12 DRILL       2         T228"
+		STRING $SMUSSO      = "SPINE POZZETO D12 SMUSSO      1         T806"
 		$TOOLPATHS = {$DRILL , $SMUSSO}
 		
 		//Clear Toolpaths
@@ -33,13 +33,13 @@ FUNCTION SPINE_POZZETO_D12_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $MA
 	} ELSE {
 		
 		//FINtf Procedure              Toolpath            Index  Tool
-		//                              10        20        30
-		//                     012345678901234567890123456789012345678
-		STRING $DRILL       = "SPINE POZZETO D12 DRILL       2    T238"
-		STRING $PREFIN      = "SPINE POZZETO D12 PREFIN      2    T966"
-		STRING $SMUSSO      = "SPINE POZZETO D12 SMUSSO      1    T806"
-		STRING $SEMIFIN     = "SPINE POZZETO D12 SEMIFIN     2    T973"
-		STRING $FIN         = "SPINE POZZETO D12 FIN         2    T973"
+		//                              10        20        30        40        50
+		//                     012345678901234567890123456789012345678901234567890
+		STRING $DRILL       = "SPINE POZZETO D12 DRILL       2         T238"
+		STRING $PREFIN      = "SPINE POZZETO D12 PREFIN      2         T966"
+		STRING $SMUSSO      = "SPINE POZZETO D12 SMUSSO      1         T806"
+		STRING $SEMIFIN     = "SPINE POZZETO D12 SEMIFIN     2         T973"
+		STRING $FIN         = "SPINE POZZETO D12 FIN         2         T973"
 		$TOOLPATHS = {$DRILL , $PREFIN , $SMUSSO , $SEMIFIN , $FIN}
 		
 		//Clear Toolpaths
@@ -62,7 +62,7 @@ FUNCTION SPINE_POZZETO_D12_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $MA
 	FOREACH PACKET IN $TOOLPATHS {
 		STRING $PATHNAME = RTRIM(SUBSTRING($PACKET , 0 , 29))
 		INT $INDEX = SUBSTRING($PACKET , 30 , 1)
-		STRING $TOOLNUMBER = SUBSTRING($PACKET , 35 , 4)
+		STRING $TOOLNUMBER = SUBSTRING($PACKET , 40 , 4)
 		EDIT TOOLPATH THICKNESS LIST UPDATE 0 NEW
 		
 		//Drill Toolpath
@@ -122,11 +122,11 @@ FUNCTION SPINE_POZZETO_D16_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $MA
 	
 	//List the Toolpaths
 	IF $ALLARGATORE AND $MANUAL_ALLIGN {
-		//SGR Procedure                Toolpath            Index  Tool
-		//                              10        20        30
-		//                     012345678901234567890123456789012345678
-		STRING $DRILL       = "SPINE POZZETO D16 DRILL       2    T240"
-		STRING $SMUSSO      = "SPINE POZZETO D16 SMUSSO      1    T369"
+		//SGR Procedure                Toolpath            Index       Tool
+		//                              10        20        30        40        50
+		//                     012345678901234567890123456789012345678901234567890
+		STRING $DRILL       = "SPINE POZZETO D16 DRILL       2         T240"
+		STRING $SMUSSO      = "SPINE POZZETO D16 SMUSSO      1         T369"
 		$TOOLPATHS = {$DRILL , $SMUSSO}
 		
 		//Clear Toolpaths
@@ -141,14 +141,14 @@ FUNCTION SPINE_POZZETO_D16_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $MA
 		IMPORT TEMPLATE PROJECT FILEOPEN "V:\Master Files\Matrex\Powermill\Tamplates\Pozzeto\Spine\D16\SPINE POZZETO D16 SGR.ptf"
 	} ELSE {
 		
-		//FINtf Procedure              Toolpath            Index  Tool
-		//                              10        20        30
-		//                     012345678901234567890123456789012345678
-		STRING $DRILL       = "SPINE POZZETO D16 DRILL       2    T238"
-		STRING $PREFIN      = "SPINE POZZETO D16 PREFIN      2    T966"
-		STRING $SMUSSO      = "SPINE POZZETO D16 SMUSSO      1    T806"
-		STRING $SEMIFIN     = "SPINE POZZETO D16 SEMIFIN     2    T983"
-		STRING $FIN         = "SPINE POZZETO D16 FIN         2    T983"
+		//FINtf Procedure              Toolpath            Index       Tool
+		//                              10        20        30        40        50
+		//                     012345678901234567890123456789012345678901234567890
+		STRING $DRILL       = "SPINE POZZETO D16 DRILL       2         T238"
+		STRING $PREFIN      = "SPINE POZZETO D16 PREFIN      2         T966"
+		STRING $SMUSSO      = "SPINE POZZETO D16 SMUSSO      1         T806"
+		STRING $SEMIFIN     = "SPINE POZZETO D16 SEMIFIN     2         T983"
+		STRING $FIN         = "SPINE POZZETO D16 FIN         2         T983"
 		$TOOLPATHS = {$DRILL , $PREFIN , $SMUSSO , $SEMIFIN , $FIN}
 		
 		//Clear Toolpaths
@@ -171,7 +171,7 @@ FUNCTION SPINE_POZZETO_D16_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $MA
 	FOREACH PACKET IN $TOOLPATHS {
 		STRING $PATHNAME = RTRIM(SUBSTRING($PACKET , 0 , 29))
 		INT $INDEX = SUBSTRING($PACKET , 30 , 1)
-		STRING $TOOLNUMBER = SUBSTRING($PACKET , 35 , 4)
+		STRING $TOOLNUMBER = SUBSTRING($PACKET , 40 , 4)
 		
 		//Drill Toolpath
 		ACTIVATE Toolpath $PATHNAME
@@ -231,12 +231,12 @@ FUNCTION VITI_POZZETO_D12_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $MAN
 	EDIT TOOLPATH THICKNESS LIST UPDATE 0 NEW
 	
 	//List the Toolpaths
-	//FINtf Procedure   |          Toolpath            Index  Tool
-	//                  |           10        20        30
-	//                  |  012345678901234567890123456789012345678
-	STRING $DRILL       = "VITI POZZETO M12 DRILL        2    T228"
-	STRING $SMUSSO      = "VITI POZZETO M12 SMUSSO       1    T369"
-	STRING $MASCHIO     = "VITI POZZETO M12 MASCHIO      2    T702"
+	//FINtf Procedure              Toolpath            Index       Tool
+	//                              10        20        30        40        50
+	//                     012345678901234567890123456789012345678901234567890
+	STRING $DRILL       = "VITI POZZETO M12 DRILL        2         T228"
+	STRING $SMUSSO      = "VITI POZZETO M12 SMUSSO       1         T369"
+	STRING $MASCHIO     = "VITI POZZETO M12 MASCHIO      2         T702"
 	$TOOLPATHS = {$DRILL , $SMUSSO , $MASCHIO}
 	
 	//Clear Toolpaths
@@ -258,7 +258,7 @@ FUNCTION VITI_POZZETO_D12_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $MAN
 	FOREACH PACKET IN $TOOLPATHS {
 		STRING $PATHNAME = RTRIM(SUBSTRING($PACKET , 0 , 29))
 		INT $INDEX = SUBSTRING($PACKET , 30 , 1)
-		STRING $TOOLNUMBER = SUBSTRING($PACKET , 35 , 4)
+		STRING $TOOLNUMBER = SUBSTRING($PACKET , 40 , 4)
 		EDIT TOOLPATH THICKNESS LIST UPDATE 0 NEW
 		
 		//Drill Toolpath
@@ -318,12 +318,12 @@ FUNCTION VITI_POZZETO_D16_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $MAN
 	EDIT TOOLPATH THICKNESS LIST UPDATE 0 NEW
 	
 	//List the Toolpaths
-	//FINtf Procedure   |          Toolpath            Index  Tool
-	//                  |           10        20        30
-	//                  |  012345678901234567890123456789012345678
-	STRING $DRILL       = "VITI POZZETO M16 DRILL        2    T238"
-	STRING $SMUSSO      = "VITI POZZETO M16 SMUSSO       1    T369"
-	STRING $MASCHIO     = "VITI POZZETO M16 MASCHIO      2    T704"
+	//FINtf Procedure              Toolpath            Index       Tool
+	//                              10        20        30        40        50
+	//                     012345678901234567890123456789012345678901234567890
+	STRING $DRILL       = "VITI POZZETO M16 DRILL        2         T238"
+	STRING $SMUSSO      = "VITI POZZETO M16 SMUSSO       1         T369"
+	STRING $MASCHIO     = "VITI POZZETO M16 MASCHIO      2         T704"
 	$TOOLPATHS = {$DRILL , $SMUSSO , $MASCHIO}
 	
 	//Clear Toolpaths
@@ -345,7 +345,7 @@ FUNCTION VITI_POZZETO_D16_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $MAN
 	FOREACH PACKET IN $TOOLPATHS {
 		STRING $PATHNAME = RTRIM(SUBSTRING($PACKET , 0 , 29))
 		INT $INDEX = SUBSTRING($PACKET , 30 , 1)
-		STRING $TOOLNUMBER = SUBSTRING($PACKET , 35 , 4)
+		STRING $TOOLNUMBER = SUBSTRING($PACKET , 40 , 4)
 		EDIT TOOLPATH THICKNESS LIST UPDATE 0 NEW
 		
 		//Drill Toolpath
@@ -394,7 +394,118 @@ FUNCTION VITI_POZZETO_D16_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $MAN
 	BLANK UNDO
 }
 
-
-
+//Matrice and Piana
+//Camera side
+//Toolpath Creation for Spine
+FUNCTION SPINE_CAMERA_D12_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $MATRICE , BOOL $PIANA BOOL $MANUAL_ALLIGN , BOOL $SPINE_ALLIGN , STRING $WP_SCARICO , REAL $MATRICEHEIGHT) {
+	//Variables
+	STRING $TOOLNUMBER = ""
+	STRING $NAME = ""
+	REAL $SPEED = 0
+	REAL $FEED = 0
+	REAL $PLUNGE = 0
+	REAL $DEPTH = $MATRICEHEIGHT/2 + 5
+	STRING LIST $TOOLPATHS = {}
+	EDIT TOOLPATH THICKNESS LIST UPDATE 0 NEW
+	
+	//List the Toolpaths
+	IF $PIANA AND $MANUAL_ALLIGN {
+		//SCA Procedure                Toolpath            Index       Tool
+		//                              10        20        30        40        50
+		//                     012345678901234567890123456789012345678901234567890
+		STRING $DRILL       = "SPINE CAMERA D12 DRILL       2         T235"
+		STRING $SMUSSO      = "SPINE CAMERA D12 SMUSSO      1         T369"
+		$TOOLPATHS = {$DRILL , $SMUSSO}
+		
+		//Clear Toolpaths
+		FOREACH PACKET IN $TOOLPATHS {
+		STRING $PATHNAME = RTRIM(SUBSTRING($PACKET , 0 , 29))
+			IF ENTITY_EXISTS('Toolpath' , $PATHNAME) {
+				DELETE Toolpath $PATHNAME NOQUIBBLE
+			}
+		}
+		
+		//Import all toolpaths
+		IMPORT TEMPLATE PROJECT FILEOPEN "V:\Master Files\Matrex\Powermill\Tamplates\Camera\Spine\D12\SPINE POZZETO D12 SCA.ptf"
+	} ELSE {
+		
+		//FINsf Procedure              Toolpath            Index       Tool
+		//                              10        20        30        40        50
+		//                     012345678901234567890123456789012345678901234567890
+		STRING $DRILL       = "SPINE CAMERA D12 DRILL        2         T228"
+		STRING $PREFIN      = "SPINE CAMERA D12 PREFIN       2         T972"
+		STRING $SMUSSO      = "SPINE CAMERA D12 SMUSSO       1         T806"
+		STRING $SEMIFIN     = "SPINE CAMERA D12 SEMIFIN      2         T973"
+		STRING $FIN         = "SPINE CAMERA D12 FIN          2         T803"
+		$TOOLPATHS = {$DRILL , $PREFIN , $SMUSSO , $SEMIFIN , $FIN}
+		
+		//Clear Toolpaths
+		FOREACH PACKET IN $TOOLPATHS {
+		STRING $PATHNAME = RTRIM(SUBSTRING($PACKET , 0 , 29))
+			IF ENTITY_EXISTS('Toolpath' , $PATHNAME) {
+				DELETE Toolpath $PATHNAME NOQUIBBLE
+			}
+		}
+		
+		//Import all toolpaths
+		IMPORT TEMPLATE PROJECT FILEOPEN "V:\Master Files\Matrex\Powermill\Tamplates\Camera\Spine\D12\SPINE CAMERA D12 FINSF.ptf"
+	}
+	
+	//Select Solid to ignore it
+	BLANK UNDO
+	EDIT LEVEL "264" SELECT ALL
+	
+	//Build the toolpaths
+	FOREACH PACKET IN $TOOLPATHS {
+		STRING $PATHNAME = RTRIM(SUBSTRING($PACKET , 0 , 29))
+		INT $INDEX = SUBSTRING($PACKET , 30 , 1)
+		STRING $TOOLNUMBER = SUBSTRING($PACKET , 40 , 4)
+		EDIT TOOLPATH THICKNESS LIST UPDATE 0 NEW
+		
+		//Drill Toolpath
+		ACTIVATE Toolpath $PATHNAME
+		//Workplane
+		ACTIVATE WORKPLANE $WP_POZZETO
+		//Select Component
+		EDIT DRILL TOP_INDEX $INDEX
+		EDIT DRILL COMP_INDEX $INDEX
+		//Tool
+		IF $COMPANY == "Matrex" {
+			CALL $MatrexToolsForDrilling($TOOLNUMBER , $NAME , $SPEED , $FEED , $PLUNGE)
+		} ELSEIF $COMPANY == "Alumat" {
+			CALL $AlumatToolsForDrilling($TOOLNUMBER , $NAME , $SPEED , $FEED , $PLUNGE)
+		} ELSE {
+			MESSAGE ERROR "Uknown Company"
+		}
+		ACTIVATE TOOL $NAME
+		EDIT RPM $SPEED
+		EDIT FRATE $FEED
+		EDIT PRATE $PLUNGE
+		//Rapids
+		EDIT TOOLPATH SAFEAREA SIZE "2"
+		EDIT TOOLPATH SAFEAREA PLUNGE_SIZE  "2"
+		//Component Thickness
+		EDIT TOOLPATH THICKNESS LIST UPDATE 0 NEW
+		EDIT TOOLPATH ; THICKNESS ACQUIRE
+		EDIT TOOLPATH ; THICKNESS COMPONENTS IGNORE
+		//Select Featureset Components
+		ACTIVATE Featureset $SETNAME
+		DIALOGS MESSAGE OFF
+		DIALOGS ERROR OFF
+		EDIT FEATURESET $SETNAME SELECT "SPINE_POZZETO_D12_1"
+		EDIT FEATURESET $SETNAME SELECT "SPINE_POZZETO_D12_2"
+		EDIT FEATURESET $SETNAME SELECT "SPINE_POZZETO_D12_3"
+		EDIT FEATURESET $SETNAME SELECT "SPINE_POZZETO_D12_4"
+		DIALOGS MESSAGE ON
+		DIALOGS ERROR ON
+		//Calculate
+		EDIT TOOLPATH $PATHNAME CALCULATE
+		DEACTIVATE Toolpath
+		DEACTIVATE Tool
+		DEACTIVATE Featureset
+	}		
+	//Deselect Solid
+	BLANK UNDO
+}
 
 
