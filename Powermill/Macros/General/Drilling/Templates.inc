@@ -234,9 +234,9 @@ FUNCTION VITI_POZZETO_D12_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $MAN
 	//FINtf Procedure   |          Toolpath            Index  Tool
 	//                  |           10        20        30
 	//                  |  012345678901234567890123456789012345678
-	STRING $DRILL       = "VITI POZZETO D12 DRILL        2    T228"
-	STRING $SMUSSO      = "VITI POZZETO D12 SMUSSO       2    T369"
-	STRING $MASCHIO     = "VITI POZZETO D12 MASCHIO      1    T702"
+	STRING $DRILL       = "VITI POZZETO M12 DRILL        2    T228"
+	STRING $SMUSSO      = "VITI POZZETO M12 SMUSSO       1    T369"
+	STRING $MASCHIO     = "VITI POZZETO M12 MASCHIO      2    T702"
 	$TOOLPATHS = {$DRILL , $SMUSSO , $MASCHIO}
 	
 	//Clear Toolpaths
@@ -248,7 +248,7 @@ FUNCTION VITI_POZZETO_D12_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $MAN
 	}
 	
 	//Import all toolpaths
-	IMPORT TEMPLATE PROJECT FILEOPEN "V:\Master Files\Matrex\Powermill\Tamplates\Pozzeto\Viti\M12\VITI POZZETO D12.ptf"
+	IMPORT TEMPLATE PROJECT FILEOPEN "V:\Master Files\Matrex\Powermill\Tamplates\Pozzeto\Viti\M12\VITI POZZETO M12.ptf"
 	
 	//Select Solid to ignore it
 	BLANK UNDO
