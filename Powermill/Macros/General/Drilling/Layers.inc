@@ -6,7 +6,7 @@
 //Mandrel and Allargatore
 //Pozzeto side
 //Layer Selection for Spine
-FUNCTION InitializeSpinePozzetoSet(BOOL $TWOPARTS , BOOL $THREEPARTS INT $PACK) {
+FUNCTION InitializeSpinePozzetoSet(BOOL $TWOPARTS , BOOL $THREEPARTS , INT $PACK) {
 	//Spine
 	//For spine need Layer 115 if the die has two parts, if three use Layer 95, also need filter to ignore spinone
 	//Select the right Layer
@@ -32,7 +32,7 @@ FUNCTION InitializeSpinePozzetoSet(BOOL $TWOPARTS , BOOL $THREEPARTS INT $PACK) 
 	BLANK UNDO
 }
 //Layer Selection for Spinone
-FUNCTION InitializeSpinonePozzetoSet(BOOL $TWOPARTS , BOOL $THREEPARTS INT $PACK) {
+FUNCTION InitializeSpinonePozzetoSet(BOOL $TWOPARTS , BOOL $THREEPARTS , INT $PACK) {
 	//Spinone
 	//For spinone need Layer 115 if the die has two parts, if three use Layer 95, also need filter to ignore spine
 	//Select the right Layer
@@ -58,7 +58,7 @@ FUNCTION InitializeSpinonePozzetoSet(BOOL $TWOPARTS , BOOL $THREEPARTS INT $PACK
 	BLANK UNDO
 }
 //Layer Selection for Viti
-FUNCTION InitializeVitiPozzetoSet(BOOL $TWOPARTS , BOOL $THREEPARTS INT $PACK) {
+FUNCTION InitializeVitiPozzetoSet(BOOL $TWOPARTS , BOOL $THREEPARTS , INT $PACK) {
 	//Viti
 	//For viti need Layer 114 die got three parts, if not need Layer 154/174 but must delete the big holes
 	//Select the right Layer
@@ -98,7 +98,7 @@ FUNCTION InitializeVitiPozzetoSet(BOOL $TWOPARTS , BOOL $THREEPARTS INT $PACK) {
 	BLANK UNDO
 }
 //Layer Selection for Sollevatore
-FUNCTION InitializeSollevatorePozzetoSet(BOOL $TWOPARTS , BOOL $THREEPARTS INT $PACK) {
+FUNCTION InitializeSollevatorePozzetoSet(BOOL $TWOPARTS , BOOL $THREEPARTS , INT $PACK) {
 	//Sollevatore
 	//For sollevatore in mandrel the right layer is 116
 	//Select the right Layer
@@ -113,7 +113,7 @@ FUNCTION InitializeSollevatorePozzetoSet(BOOL $TWOPARTS , BOOL $THREEPARTS INT $
 //Matrice and Piana
 //Camera side
 //Layer Selection for Spine
-FUNCTION InitializeSpineCameraSet(BOOL $TWOPARTS , BOOL $THREEPARTS INT $PACK) {
+FUNCTION InitializeSpineCameraSet(BOOL $TWOPARTS , BOOL $THREEPARTS , INT $PACK) {
 	//Spine
 	//For spine need Layer 115 if the die has two parts, if three use Layer 95, also need filter to ignore spinone
 	//Select the right Layer
@@ -139,7 +139,7 @@ FUNCTION InitializeSpineCameraSet(BOOL $TWOPARTS , BOOL $THREEPARTS INT $PACK) {
 	BLANK UNDO
 }
 //Layer Selection for Spinone
-FUNCTION InitializeSpinoneCameraSet(BOOL $TWOPARTS , BOOL $THREEPARTS INT $PACK) {
+FUNCTION InitializeSpinoneCameraSet(BOOL $TWOPARTS , BOOL $THREEPARTS , INT $PACK) {
 	//Spinone
 	//For spinone need Layer 115 if the die has two parts, if three use Layer 95, also need filter to ignore spine
 	//Select the right Layer
@@ -165,7 +165,7 @@ FUNCTION InitializeSpinoneCameraSet(BOOL $TWOPARTS , BOOL $THREEPARTS INT $PACK)
 	BLANK UNDO
 }
 //Layer Selection for Viti
-FUNCTION InitializeVitiCameraSet(BOOL $TWOPARTS , BOOL $THREEPARTS INT $PACK) {
+FUNCTION InitializeVitiCameraSet(BOOL $TWOPARTS , BOOL $THREEPARTS , INT $PACK) {
 	//Viti
 	//For viti need Layer 114 if Pack is 5 or 7, for all the other packs use Layer 94, viti does not need filter
 	//Select the right Layer
@@ -205,7 +205,7 @@ FUNCTION InitializeVitiCameraSet(BOOL $TWOPARTS , BOOL $THREEPARTS INT $PACK) {
 	BLANK UNDO
 }
 //Layer Selection for Estrattore
-FUNCTION InitializeEstrattoreCameraSet(BOOL $TWOPARTS , BOOL $THREEPARTS INT $PACK) {
+FUNCTION InitializeEstrattoreCameraSet(BOOL $TWOPARTS , BOOL $THREEPARTS , INT $PACK) {
 	//Estrattore
 	//For estrattore in matrice the right layer is 157
 	//Select the right Layer
@@ -219,7 +219,7 @@ FUNCTION InitializeEstrattoreCameraSet(BOOL $TWOPARTS , BOOL $THREEPARTS INT $PA
 
 //Scarico side
 //Layer Selection for Spine
-FUNCTION InitializeSpineScaricoSet(BOOL $TWOPARTS , BOOL $THREEPARTS INT $PACK) {
+FUNCTION InitializeSpineScaricoSet(BOOL $TWOPARTS , BOOL $THREEPARTS , BOOL $COLLARINO_SCARICO , INT $PACK) {
 	//Spine
 	//For spine need Layer 115 if the die has two parts, if three use Layer 95, also need filter to ignore spinone
 	//Select the right Layer
@@ -227,7 +227,7 @@ FUNCTION InitializeSpineScaricoSet(BOOL $TWOPARTS , BOOL $THREEPARTS INT $PACK) 
 	BLANK UNDO
 	VIEW MODEL ; SHADE OFF
 	VIEW MODEL ; WIREFRAME ON
-	IF $TWOPARTS {
+	IF $TWOPARTS OR ($THREEPARTS AND $COLLARINO_SCARICO) {
 		UNDRAW LEVEL ALL DRAW LEVEL "115"
 	} ELSE {
 		UNDRAW LEVEL ALL DRAW LEVEL "95"
@@ -245,7 +245,7 @@ FUNCTION InitializeSpineScaricoSet(BOOL $TWOPARTS , BOOL $THREEPARTS INT $PACK) 
 	BLANK UNDO
 }
 //Layer Selection for Spinone
-FUNCTION InitializeSpinoneScaricoSet(BOOL $TWOPARTS , BOOL $THREEPARTS INT $PACK) {
+FUNCTION InitializeSpinoneScaricoSet(BOOL $TWOPARTS , BOOL $THREEPARTS , INT $PACK) {
 	//Spinone
 	//For spinone need Layer 115 if the die has two parts, if three use Layer 95, also need filter to ignore spine
 	//Select the right Layer
@@ -257,7 +257,7 @@ FUNCTION InitializeSpinoneScaricoSet(BOOL $TWOPARTS , BOOL $THREEPARTS INT $PACK
 	BLANK UNDO
 }
 //Layer Selection for Viti
-FUNCTION InitializeVitiScaricoSet(BOOL $TWOPARTS , BOOL $THREEPARTS INT $PACK) {
+FUNCTION InitializeVitiScaricoSet(BOOL $TWOPARTS , BOOL $THREEPARTS , INT $PACK) {
 	//Viti
 	//For viti need Layer 114 if Pack is 5 or 7, for all the other packs use Layer 94, viti does not need filter
 	//Select the right Layer
@@ -297,7 +297,7 @@ FUNCTION InitializeVitiScaricoSet(BOOL $TWOPARTS , BOOL $THREEPARTS INT $PACK) {
 	BLANK UNDO
 }
 //Layer Selection for Estrattore
-FUNCTION InitializeEstrattoreScaricoSet(BOOL $TWOPARTS , BOOL $THREEPARTS INT $PACK() {
+FUNCTION InitializeEstrattoreScaricoSet(BOOL $TWOPARTS , BOOL $THREEPARTS , INT $PACK() {
 	//Estrattore
 	//For estrattore in matrice the right layer is 157
 	//Select the right Layer
@@ -309,7 +309,7 @@ FUNCTION InitializeEstrattoreScaricoSet(BOOL $TWOPARTS , BOOL $THREEPARTS INT $P
 	BLANK UNDO
 }
 //Layer Selection for Sollevatore
-FUNCTION InitializeSollevatoreScaricoSet(BOOL $TWOPARTS , BOOL $THREEPARTS INT $PACK) {
+FUNCTION InitializeSollevatoreScaricoSet(BOOL $TWOPARTS , BOOL $THREEPARTS , INT $PACK) {
 	//Sollevatore
 	//For sollevatore in matrice the right layer is 156
 	//Select the right Layer
@@ -324,7 +324,7 @@ FUNCTION InitializeSollevatoreScaricoSet(BOOL $TWOPARTS , BOOL $THREEPARTS INT $
 //Terzapiastra and Sottomatrice
 //Impronta side
 //Layer Selection for Spine
-FUNCTION InitializeSpineImprontaSet(BOOL $TWOPARTS , BOOL $THREEPARTS INT $PACK) {
+FUNCTION InitializeSpineImprontaSet(BOOL $TWOPARTS , BOOL $THREEPARTS , INT $PACK) {
 	//Spine
 	//For spine need Layer 115 if the die has two parts, if three use Layer 95, also need filter to ignore spinone
 	//Select the right Layer
@@ -350,7 +350,7 @@ FUNCTION InitializeSpineImprontaSet(BOOL $TWOPARTS , BOOL $THREEPARTS INT $PACK)
 	BLANK UNDO
 }
 //Layer Selection for Spinone
-FUNCTION InitializeSpinoneImprontaSet(BOOL $TWOPARTS , BOOL $THREEPARTS INT $PACK) {
+FUNCTION InitializeSpinoneImprontaSet(BOOL $TWOPARTS , BOOL $THREEPARTS , INT $PACK) {
 	//Spinone
 	//For spinone need Layer 115 if the die has two parts, if three use Layer 95, also need filter to ignore spine
 	//Select the right Layer
@@ -366,7 +366,7 @@ FUNCTION InitializeSpinoneImprontaSet(BOOL $TWOPARTS , BOOL $THREEPARTS INT $PAC
 	BLANK UNDO
 }
 //Layer Selection for Viti
-FUNCTION InitializeVitiImprontaSet(BOOL $TWOPARTS , BOOL $THREEPARTS INT $PACK) {
+FUNCTION InitializeVitiImprontaSet(BOOL $TWOPARTS , BOOL $THREEPARTS , INT $PACK) {
 	//Viti
 	//For viti need Layer 114 if Pack is 5 or 7, for all the other packs use Layer 94, viti does not need filter
 	//Select the right Layer
@@ -406,7 +406,7 @@ FUNCTION InitializeVitiImprontaSet(BOOL $TWOPARTS , BOOL $THREEPARTS INT $PACK) 
 	BLANK UNDO
 }
 //Layer Selection for Estrattore
-FUNCTION InitializeEstrattoreImprontaSet(BOOL $TWOPARTS , BOOL $THREEPARTS INT $PACK) {
+FUNCTION InitializeEstrattoreImprontaSet(BOOL $TWOPARTS , BOOL $THREEPARTS , INT $PACK) {
 	//Estrattore
 	//For estrattore in terzapiastra the right layer is 187
 	//Select the right Layer
@@ -420,7 +420,7 @@ FUNCTION InitializeEstrattoreImprontaSet(BOOL $TWOPARTS , BOOL $THREEPARTS INT $
 
 //Uscita side
 //Layer Selection for Spine
-FUNCTION InitializeSpineUscitaSet(BOOL $TWOPARTS , BOOL $THREEPARTS INT $PACK) {
+FUNCTION InitializeSpineUscitaSet(BOOL $TWOPARTS , BOOL $THREEPARTS , INT $PACK) {
 	//Spine
 	//For spine need Layer 115 if the die has two parts, if three use Layer 95, also need filter to ignore spinone
 	//Select the right Layer
@@ -446,7 +446,7 @@ FUNCTION InitializeSpineUscitaSet(BOOL $TWOPARTS , BOOL $THREEPARTS INT $PACK) {
 	BLANK UNDO
 }
 //Layer Selection for Spinone
-FUNCTION InitializeSpinoneUscitaSet(BOOL $TWOPARTS , BOOL $THREEPARTS INT $PACK) {
+FUNCTION InitializeSpinoneUscitaSet(BOOL $TWOPARTS , BOOL $THREEPARTS , INT $PACK) {
 	//Spinone
 	//For spinone need Layer 115 if the die has two parts, if three use Layer 95, also need filter to ignore spine
 	//Select the right Layer
@@ -458,7 +458,7 @@ FUNCTION InitializeSpinoneUscitaSet(BOOL $TWOPARTS , BOOL $THREEPARTS INT $PACK)
 	BLANK UNDO
 }
 //Layer Selection for Viti
-FUNCTION InitializeVitiUscitaSet(BOOL $TWOPARTS , BOOL $THREEPARTS INT $PACK) {
+FUNCTION InitializeVitiUscitaSet(BOOL $TWOPARTS , BOOL $THREEPARTS , INT $PACK) {
 	//Viti
 	//For viti need Layer 114 if Pack is 5 or 7, for all the other packs use Layer 94, viti does not need filter
 	//Select the right Layer
@@ -498,7 +498,7 @@ FUNCTION InitializeVitiUscitaSet(BOOL $TWOPARTS , BOOL $THREEPARTS INT $PACK) {
 	BLANK UNDO
 }
 //Layer Selection for Estrattore
-FUNCTION InitializeEstrattoreUscitaSet(BOOL $TWOPARTS , BOOL $THREEPARTS INT $PACK() {
+FUNCTION InitializeEstrattoreUscitaSet(BOOL $TWOPARTS , BOOL $THREEPARTS , INT $PACK() {
 	//Estrattore
 	//For estrattore in terzapiastra the right layer is 187
 	//Select the right Layer
@@ -510,7 +510,7 @@ FUNCTION InitializeEstrattoreUscitaSet(BOOL $TWOPARTS , BOOL $THREEPARTS INT $PA
 	BLANK UNDO
 }
 //Layer Selection for Sollevatore
-FUNCTION InitializeSollevatoreUscitaSet(BOOL $TWOPARTS , BOOL $THREEPARTS INT $PACK) {
+FUNCTION InitializeSollevatoreUscitaSet(BOOL $TWOPARTS , BOOL $THREEPARTS , INT $PACK) {
 	//Sollevatore
 	//For sollevatore in terzapiastra the right layer is 186
 	//Select the right Layer
