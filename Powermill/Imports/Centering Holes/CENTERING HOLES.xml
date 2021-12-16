@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<features xmlns="x-schema:Features.xml">
+  <featureset unit="metric">
+    <workplane>
+      <point X="0" Y="0" Z="0"/>
+      <u_vector I="1" J="0" K="0"/>
+      <v_vector I="0" J="1" K="0"/>
+      <w_vector I="0" J="0" K="1"/>
+    </workplane>
+    <compound_hole component="1" hole_definition="hole1" name="CENTERING LEFT">
+      <point X="0" Y="0" Z="0"/>
+      <axis I="-0" J="-0" K="-1"/>
+    </compound_hole>
+    <compound_hole component="1" hole_definition="hole1" name="CENTERING TOP">
+      <point X="0" Y="0" Z="0"/>
+      <axis I="-0" J="-0" K="-1"/>
+    </compound_hole>
+    <compound_hole component="1" hole_definition="hole1" name="CENTERING RIGHT">
+      <point X="0" Y="0" Z="0"/>
+      <axis I="-0" J="-0" K="-1"/>
+    </compound_hole>
+  </featureset>
+  <hole_defs>
+     <hole_def id="hole1" description="description" hole_type="type">
+      <hole>
+        <geometry diameter="6" taper="0" depth="8"/>
+        </hole>
+     </hole_def>
+  </hole_defs>
+</features>
