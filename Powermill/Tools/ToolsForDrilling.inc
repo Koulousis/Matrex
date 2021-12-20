@@ -7,6 +7,12 @@ SWITCH $TOOLNUMBER {
 		$FEED = 140
 		$PLUNGE = 4
 	BREAK
+	CASE "T203"
+		$NAME =  "T203 Punta D6,0 H30,0"
+		$SPEED = 6000
+		$FEED = 250
+		$PLUNGE = 250
+	BREAK
 	CASE "T369"
 		$NAME =  "T369 Conica Toroidale D15,0 H65,0"
 		$SPEED = 5000
