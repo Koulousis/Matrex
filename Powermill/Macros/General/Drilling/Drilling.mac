@@ -353,7 +353,7 @@ FUNCTION CreateCentrino(STRING LIST $TORNDATA , STRING $COMPANY , BOOL $MANDREL 
 		
 		//Create Centrino feature and toolpath
 		CALL CENTRINO_LATO1($LATO1_DIAMETER)
-	}
+	
 	
 	//Piece code, diameter and height for the second part of die
 	} ELSEIF $MATRICE OR ($PIANA AND $ALLARGATORE_FIRST) OR ($SOTTOMATRICE AND $PIANA_FIRST) {
