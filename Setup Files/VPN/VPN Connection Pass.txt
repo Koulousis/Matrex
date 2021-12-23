@@ -1,0 +1,14 @@
+ftp_matrex
+pass: alutrex
+
+connection to salonicco:
+user: cam
+pass: matrex
+
+connection to sindos
+user: cam
+pass: matrex
+
+connection to firewall vpn
+user: matrexnew11
+pass: Matrex2019 or Matrex2020 or Alumat2019
