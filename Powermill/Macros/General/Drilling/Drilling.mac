@@ -346,6 +346,8 @@ FUNCTION CreateCentrino(STRING LIST $TORNDATA , STRING $COMPANY , BOOL $MANDREL 
 			}
 		}
 		CALL CENTRINO_ENTRATA($COMPANY , $DIAMETER)
+	} ELSEIF $ALLARGATORE {
+		
 	}
 	
 }
@@ -3209,19 +3211,6 @@ FUNCTION CreateHoleFeatureComponentsAndToolpaths(STRING $COMPANY , BOOL $PORTHOL
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
