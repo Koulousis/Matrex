@@ -37,7 +37,7 @@ FUNCTION CENTRINO_ENTRATA(STRING $COMPANY , REAL $DIAMETER) {
 		DELETE Toolpath $PATHNAME NOQUIBBLE
 	}
 	//Import all toolpaths
-	IMPORT TEMPLATE PROJECT FILEOPEN "V:\Master Files\Matrex\Powermill\Tamplates\Entrata\Centrino.ptf"
+	IMPORT TEMPLATE PROJECT FILEOPEN "V:\Master Files\Matrex\Powermill\Tamplates\Entrata\Centrino\Centrino.ptf"
 	//Select Solid to ignore it
 	BLANK UNDO
 	EDIT LEVEL "264" SELECT ALL
@@ -80,7 +80,7 @@ FUNCTION CENTRINO_ENTRATA(STRING $COMPANY , REAL $DIAMETER) {
 
 FUNCTION CENTRINO_ALLARGATORE(STRING $COMPANY , REAL $DIAMETER) {
 	DEACTIVATE Workplane
-	ACTIVATE FOLDER "Featureset\STANDARD_HOLES\ENTRATA"
+	ACTIVATE FOLDER "Featureset\STANDARD_HOLES\POZZETO"
 	EDIT FEATURECREATE NAME   
 	EDIT FEATURESET ; INSERT FILE FILEOPEN "V:\Master Files\Matrex\Powermill\Imports\Centering Holes\CENTERING HOLES.xml"
 	DELETE Workplane "1"
@@ -117,7 +117,7 @@ FUNCTION CENTRINO_ALLARGATORE(STRING $COMPANY , REAL $DIAMETER) {
 		DELETE Toolpath $PATHNAME NOQUIBBLE
 	}
 	//Import all toolpaths
-	IMPORT TEMPLATE PROJECT FILEOPEN "V:\Master Files\Matrex\Powermill\Tamplates\Pozzeto\Centrino.ptf"
+	IMPORT TEMPLATE PROJECT FILEOPEN "V:\Master Files\Matrex\Powermill\Tamplates\Pozzeto\Centrino\Centrino.ptf"
 	//Select Solid to ignore it
 	BLANK UNDO
 	EDIT LEVEL "264" SELECT ALL
