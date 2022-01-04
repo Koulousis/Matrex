@@ -84,14 +84,18 @@ FUNCTION Main()  {
 	//Create Folders Tree on Hole Feature Set
 	CALL CreateFolder($MANDREL , $ALLARGATORE , $MATRICE , $PIANA , $TERZAPIASTRA , $SOTTOMATRICE)
 	
-	//Centrino Creation
 	CALL CreateCentrino($TORNDATA , $COMPANY , $MANDREL , $ALLARGATORE , $MATRICE , $PIANA , $TERZAPIASTRA , $SOTTOMATRICE , $ALLARGATORE_FIRST , $PIANA_FIRST)
-
-	//Hole Feature Sets Initialization
+	//Define Workplanes
 	STRING $WP_POZZETO = "PL POZZETTO"
 	STRING $WP_SCARICO = "WP SCARICO"
 	STRING $WP_USCITA = "WP_USCITA"
-	CALL GetHoleFeatureSets($MANDREL , $ALLARGATORE , $MATRICE , $PIANA , $TERZAPIASTRA , $SOTTOMATRICE , $TWOPARTS , $THREEPARTS , $COLLARINO_SCARICO , $PACK , $WP_POZZETO , $WP_SCARICO , $WP_USCITA)
+	CALL GetWorkplanes($MANDREL , $ALLARGATORE , $MATRICE , $PIANA , $TERZAPIASTRA , $SOTTOMATRICE , $WP_POZZETO , $WP_SCARICO , $WP_USCITA)
+	
+	//Centrino Creation
+	CALL CreateCentrino($TORNDATA , $COMPANY , $MANDREL , $ALLARGATORE , $MATRICE , $PIANA , $TERZAPIASTRA , $SOTTOMATRICE , $ALLARGATORE_FIRST , $PIANA_FIRST , $WP_POZZETO , $WP_SCARICO , $WP_USCITA)
+
+	//Hole Feature Sets Initialization
+	CALL GetHoleFeatureSets($MANDREL , $ALLARGATORE , $MATRICE , $PIANA , $TERZAPIASTRA , $SOTTOMATRICE , $TWOPARTS , $THREEPARTS , $COLLARINO_SCARICO , $PACK)
 	
 	//Hole Feature Sets Creation
 	CALL CreateHoleFeatureComponentsAndToolpaths($COMPANY , $PORTHOLE , $FLAT , $TWOPARTS , $THREEPARTS , $ALLARGATORE_FIRST , $PIANA_FIRST , $MANDREL , $ALLARGATORE , $MATRICE , $PIANA , $TERZAPIASTRA , $SOTTOMATRICE , $COLLARINO_CAMERA , $COLLARINO_SCARICO , $MANUAL_ALLIGN , $SPINE_ALLIGN , $MATRICEHEIGHT , $WP_POZZETO , $WP_SCARICO , $WP_USCITA)
@@ -332,8 +336,46 @@ FUNCTION CreateFolder(BOOL $MANDREL , BOOL $ALLARGATORE , BOOL $MATRICE , BOOL $
 
 }
 
-FUNCTION CreateCentrino(STRING LIST $TORNDATA , STRING $COMPANY , BOOL $MANDREL , BOOL $ALLARGATORE , BOOL $MATRICE , BOOL $PIANA , BOOL  $TERZAPIASTRA , BOOL $SOTTOMATRICE , BOOL $ALLARGATORE_FIRST , BOOL $PIANA_FIRST) {
+FUNCTION GetWorkplanes(BOOL $MANDREL , BOOL $ALLARGATORE , BOOL $MATRICE , BOOL $PIANA , BOOL $TERZAPIASTRA , BOOL $SOTTOMATRICE , OUTPUT STRING $WP_POZZETO , OUTPUT STRING $WP_SCARICO , OUTPUT STRING $WP_USCITA) {
+	IF $MANDREL OR $ALLARGATORE {
+		//Workplane for Pozzeto Side
+		IF ENTITY_EXISTS('Workplane', "PL POZZETTO") {
+			ACTIVATE Workplane $WP_POZZETO
+		} ELSE {
+			MESSAGE INFO "Workplane <PL POZZETO> does not exist" + CRLF + "Select a Workplane from the next list"
+			$WP_POZZETO = INPUT ENTITY WORKPLANE "Select Workplane for Pozzetto Holes:"
+			ACTIVATE WORKPLANE $WP_POZZETO
+		}
+	} ELSEIF $MATRICE OR $PIANA {
+		//Workplane for Scarico Side
+		IF ENTITY_EXISTS('Workplane', "WP SCARICO") {
+			ACTIVATE Workplane $WP_SCARICO
+		} ELSE {
+			MESSAGE INFO "Workplane <WP SCARICO> does not exist" + CRLF + "Select a Workplane from the next list"
+			$WP_SCARICO = INPUT ENTITY WORKPLANE "Select Workplane for Pozzetto Holes:"
+			ACTIVATE WORKPLANE $WP_SCARICO
+		}
+	} ELSEIF $TERZAPIASTRA OR $SOTTOMATRICE {
+		//Workplane for Uscita Side
+		IF ENTITY_EXISTS('Workplane', "WP USCITA") {
+			ACTIVATE Workplane $WP_USCITA
+		} ELSE {
+			MESSAGE INFO "Workplane <WP USCITA> does not exist" + CRLF + "Select a Workplane from the next list"
+			$WP_USCITA = INPUT ENTITY WORKPLANE "Select Workplane for Pozzetto Holes:"
+			ACTIVATE WORKPLANE $WP_USCITA
+		}
+	} ELSE {
+		MESSAGE ERROR "There's not specified part of Die"
+	}
+	DEACTIVATE Workplane
+	DEACTIVATE Featureset
+	DIALOGS MESSAGE ON
+	DIALOGS ERROR ON
+}
+
+FUNCTION CreateCentrino(STRING LIST $TORNDATA , STRING $COMPANY , BOOL $MANDREL , BOOL $ALLARGATORE , BOOL $MATRICE , BOOL $PIANA , BOOL $TERZAPIASTRA , BOOL $SOTTOMATRICE , BOOL $ALLARGATORE_FIRST , BOOL $PIANA_FIRST , STRING $WP_POZZETO , STRING $WP_SCARICO , STRING $WP_USCITA) {
 	
+	//Define Variables depending on the piece and Call the corresponding Function
 	IF $MANDREL {
 		//Diamater from battuta
 		REAL $DIAMETER = SUBSTRING($TORNDATA[23] , 5 , 5)
@@ -347,12 +389,22 @@ FUNCTION CreateCentrino(STRING LIST $TORNDATA , STRING $COMPANY , BOOL $MANDREL 
 		}
 		CALL CENTRINO_ENTRATA($COMPANY , $DIAMETER)
 	} ELSEIF $ALLARGATORE {
-		
+		//Piece Code
+		INT $PIECECODE = SUBSTRING($TORNDATA[3] , 5 , 1)
+		//Diameter and Height total
+		REAL $DIAMETER = SUBSTRING($TORNDATA[7] , 5 , 5)
+		REAL $HEIGHT = 0
+		IF $PIECECODE == 7 OR $PIECECODE == 6 {
+			//Diameter and Height Collarino
+			$DIAMETER = SUBSTRING($TORNDATA[12] , 5 , 5)
+			$HEIGHT = SUBSTRING($TORNDATA[13] , 5 , 5)
+		}
+		CALL CENTRINO_ALLARGATORE($COMPANY , $DIAMETER , $HEIGHT , $PIECECODE , $WP_POZZETO)
 	}
 	
 }
 
-FUNCTION GetHoleFeatureSets(BOOL $MANDREL , BOOL $ALLARGATORE , BOOL $MATRICE , BOOL $PIANA , BOOL $TERZAPIASTRA , BOOL $SOTTOMATRICE , BOOL $TWOPARTS , BOOL $THREEPARTS , BOOL $COLLARINO_SCARICO , INT $PACK , OUTPUT STRING $WP_POZZETO , OUTPUT STRING $WP_SCARICO , OUTPUT STRING $WP_USCITA) {
+FUNCTION GetHoleFeatureSets(BOOL $MANDREL , BOOL $ALLARGATORE , BOOL $MATRICE , BOOL $PIANA , BOOL $TERZAPIASTRA , BOOL $SOTTOMATRICE , BOOL $TWOPARTS , BOOL $THREEPARTS , BOOL $COLLARINO_SCARICO , INT $PACK) {
 	
 	//Delete previous and create new basic folders to fill
 	//Create simultaneously hole feature sets and fill them
@@ -361,13 +413,6 @@ FUNCTION GetHoleFeatureSets(BOOL $MANDREL , BOOL $ALLARGATORE , BOOL $MATRICE , 
 	DIALOGS ERROR OFF
 	IF $MANDREL OR $ALLARGATORE {
 		//Create Hole Feature Sets POZZETTO Side but first check if the right workplane exist
-		IF ENTITY_EXISTS('Workplane', "PL POZZETTO") {
-			ACTIVATE Workplane $WP_POZZETO
-		} ELSE {
-			MESSAGE INFO "Workplane <PL POZZETO> does not exist" + CRLF + "Select a Workplane from the next list"
-			$WP_POZZETO = INPUT ENTITY WORKPLANE "Select Workplane for Pozzetto Holes:"
-			ACTIVATE WORKPLANE $WP_POZZETO
-		}
 		CALL InitializeSpinePozzetoSet($TWOPARTS , $THREEPARTS , $PACK)
 		CALL InitializeSpinonePozzetoSet($TWOPARTS , $THREEPARTS , $PACK)
 		CALL InitializeVitiPozzetoSet($TWOPARTS , $THREEPARTS , $PACK)
@@ -381,13 +426,6 @@ FUNCTION GetHoleFeatureSets(BOOL $MANDREL , BOOL $ALLARGATORE , BOOL $MATRICE , 
 		CALL InitializeEstrattoreCameraSet($TWOPARTS , $THREEPARTS , $PACK)
 		
 		//Create Hole Feature Sets SCARICO Side but first check if the right workplane exist
-		IF ENTITY_EXISTS('Workplane', "WP SCARICO") {
-			ACTIVATE Workplane $WP_SCARICO
-		} ELSE {
-			MESSAGE INFO "Workplane <WP SCARICO> does not exist" + CRLF + "Select a Workplane from the next list"
-			$WP_SCARICO = INPUT ENTITY WORKPLANE "Select Workplane for Pozzetto Holes:"
-			ACTIVATE WORKPLANE $WP_SCARICO
-		}
 		CALL InitializeSpineScaricoSet($TWOPARTS , $THREEPARTS , $COLLARINO_SCARICO , $PACK)
 		CALL InitializeSpinoneScaricoSet($TWOPARTS , $THREEPARTS , $PACK)
 		CALL InitializeVitiScaricoSet($TWOPARTS , $THREEPARTS , $PACK)
@@ -402,13 +440,6 @@ FUNCTION GetHoleFeatureSets(BOOL $MANDREL , BOOL $ALLARGATORE , BOOL $MATRICE , 
 		CALL InitializeEstrattoreImprontaSet($TWOPARTS , $THREEPARTS , $PACK)
 		
 		//Create Hole Feature Sets USCITA Side but first check if the right workplane exist
-		IF ENTITY_EXISTS('Workplane', "WP USCITA") {
-			ACTIVATE Workplane $WP_USCITA
-		} ELSE {
-			MESSAGE INFO "Workplane <WP USCITA> does not exist" + CRLF + "Select a Workplane from the next list"
-			$WP_USCITA = INPUT ENTITY WORKPLANE "Select Workplane for Pozzetto Holes:"
-			ACTIVATE WORKPLANE $WP_USCITA
-		}
 		CALL InitializeSpineUscitaSet($TWOPARTS , $THREEPARTS , $PACK)
 		CALL InitializeSpinoneUscitaSet($TWOPARTS , $THREEPARTS , $PACK)
 		CALL InitializeVitiUscitaSet($TWOPARTS , $THREEPARTS , $PACK)
