@@ -372,7 +372,7 @@ FUNCTION CENTRINO_PIANA(STRING $COMPANY , BOOL $TWOPARTS , BOOL $THREEPARTS , BO
 	IF ENTITY_EXISTS('Toolpath' , $PATHNAME) {
 		DELETE Toolpath $PATHNAME NOQUIBBLE
 	}
-	IMPORT TEMPLATE PROJECT FILEOPEN "V:\Master Files\Matrex\Powermill\Tamplates\Pozzeto\Centrino\Centrino.ptf"
+	IMPORT TEMPLATE PROJECT FILEOPEN "V:\Master Files\Matrex\Powermill\Tamplates\Scarico\Centrino\Centrino.ptf"
 	
 	//Select Solid to ignore it
 	BLANK UNDO
