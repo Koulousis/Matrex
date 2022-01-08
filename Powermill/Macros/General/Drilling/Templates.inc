@@ -1893,7 +1893,7 @@ FUNCTION SPINONE_CAMERA_D6_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $MA
 	}
 	
 	//Import all toolpaths
-	IMPORT TEMPLATE PROJECT FILEOPEN "V:\Master Files\Matrex\Powermill\Tamplates\Camera\Spinone\D8\SPINONE CAMERA D8 FINSF.ptf"
+	IMPORT TEMPLATE PROJECT FILEOPEN "V:\Master Files\Matrex\Powermill\Tamplates\Camera\Spinone\D6\SPINONE CAMERA D6 FINSF.ptf"
 	
 	
 	//Select Solid to ignore it
@@ -1914,7 +1914,7 @@ FUNCTION SPINONE_CAMERA_D6_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $MA
 		EDIT DRILL TOP_INDEX $INDEX
 		EDIT DRILL COMP_INDEX $INDEX
 		//Depth
-		EDIT DRILL DEPTH $DEPTH
+		EDIT DRILL DEPTH $DRILLDEPTH
 		//Tool
 		IF $COMPANY == "Matrex" {
 			CALL $MatrexToolsForDrilling($TOOLNUMBER , $NAME , $SPEED , $FEED , $PLUNGE)
@@ -1968,12 +1968,12 @@ FUNCTION SPINONE_CAMERA_D8_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $MA
 	//FINtf Procedure              Toolpath            Index  Tool
 	//                              10        20        30        40        50
 	//                     012345678901234567890123456789012345678901234567890
-	STRING $CENTRINO    = "SPINONE CAMERA D8 CENTRINO   2         T202       3"
-	STRING $DRILL       = "SPINONE CAMERA D8 DRILL      2         T219       15"
-	STRING $PREFIN      = "SPINONE CAMERA D8 PREFIN     2         T977       10"
-	STRING $SMUSSO      = "SPINONE CAMERA D8 SMUSSO     1         T806       3"
-	STRING $SEMIFIN     = "SPINONE CAMERA D8 SEMIFIN    2         T957       9"
-	STRING $FIN         = "SPINONE CAMERA D8 FIN        2         T957       9"
+	STRING $CENTRINO    = "SPINONE CAMERA D8 CENTRINO    2         T202      3"
+	STRING $DRILL       = "SPINONE CAMERA D8 DRILL       2         T219      15"
+	STRING $PREFIN      = "SPINONE CAMERA D8 PREFIN      2         T977      10"
+	STRING $SMUSSO      = "SPINONE CAMERA D8 SMUSSO      1         T806      3"
+	STRING $SEMIFIN     = "SPINONE CAMERA D8 SEMIFIN     2         T957      9"
+	STRING $FIN         = "SPINONE CAMERA D8 FIN         2         T957      9"
 	$TOOLPATHS = {$CENTRINO , $DRILL , $PREFIN , $SMUSSO , $SEMIFIN , $FIN}
 	
 	//Clear Toolpaths
@@ -2006,7 +2006,7 @@ FUNCTION SPINONE_CAMERA_D8_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $MA
 		EDIT DRILL TOP_INDEX $INDEX
 		EDIT DRILL COMP_INDEX $INDEX
 		//Depth
-		EDIT DRILL DEPTH $DEPTH
+		EDIT DRILL DEPTH $DRILLDEPTH
 		//Tool
 		IF $COMPANY == "Matrex" {
 			CALL $MatrexToolsForDrilling($TOOLNUMBER , $NAME , $SPEED , $FEED , $PLUNGE)
@@ -2060,12 +2060,12 @@ FUNCTION SPINONE_CAMERA_D10_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $M
 	//FINtf Procedure              Toolpath            Index  Tool
 	//                              10        20        30        40        50
 	//                     012345678901234567890123456789012345678901234567890
-	STRING $CENTRINO    = "SPINONE CAMERA D10 CENTRINO  2         T202       3"
-	STRING $DRILL       = "SPINONE CAMERA D10 DRILL     2         T225       15"
-	STRING $PREFIN      = "SPINONE CAMERA D10 PREFIN    2         T964       10"
-	STRING $SMUSSO      = "SPINONE CAMERA D10 SMUSSO    1         T806       3"
-	STRING $SEMIFIN     = "SPINONE CAMERA D10 SEMIFIN   2         T971       9"
-	STRING $FIN         = "SPINONE CAMERA D10 FIN       2         T971       9"
+	STRING $CENTRINO    = "SPINONE CAMERA D10 CENTRINO   2         T202      3"
+	STRING $DRILL       = "SPINONE CAMERA D10 DRILL      2         T225      15"
+	STRING $PREFIN      = "SPINONE CAMERA D10 PREFIN     2         T964      10"
+	STRING $SMUSSO      = "SPINONE CAMERA D10 SMUSSO     1         T806      3"
+	STRING $SEMIFIN     = "SPINONE CAMERA D10 SEMIFIN    2         T971      9"
+	STRING $FIN         = "SPINONE CAMERA D10 FIN        2         T971      9"
 	$TOOLPATHS = {$CENTRINO , $DRILL , $PREFIN , $SMUSSO , $SEMIFIN , $FIN}
 	
 	//Clear Toolpaths
@@ -2152,11 +2152,11 @@ FUNCTION SPINONE_CAMERA_D12_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $M
 	//FINtf Procedure              Toolpath            Index  Tool
 	//                              10        20        30        40        50
 	//                     012345678901234567890123456789012345678901234567890
-	STRING $DRILL       = "SPINONE CAMERA D12 DRILL     2         T228       20"
-	STRING $PREFIN      = "SPINONE CAMERA D12 PREFIN    2         T965       17"
-	STRING $SMUSSO      = "SPINONE CAMERA D12 SMUSSO    1         T806       3"
-	STRING $SEMIFIN     = "SPINONE CAMERA D12 SEMIFIN   2         T972       17"
-	STRING $FIN         = "SPINONE CAMERA D12 FIN       2         T972       17"
+	STRING $DRILL       = "SPINONE CAMERA D12 DRILL      2         T228      20"
+	STRING $PREFIN      = "SPINONE CAMERA D12 PREFIN     2         T965      17"
+	STRING $SMUSSO      = "SPINONE CAMERA D12 SMUSSO     1         T806      3"
+	STRING $SEMIFIN     = "SPINONE CAMERA D12 SEMIFIN    2         T972      17"
+	STRING $FIN         = "SPINONE CAMERA D12 FIN        2         T972      17"
 	$TOOLPATHS = {$DRILL , $PREFIN , $SMUSSO , $SEMIFIN , $FIN}
 	
 	//Clear Toolpaths
@@ -2242,11 +2242,11 @@ FUNCTION SPINONE_CAMERA_D16_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $M
 	//FINtf Procedure              Toolpath            Index       Tool
 	//                              10        20        30        40        50
 	//                     012345678901234567890123456789012345678901234567890
-	STRING $DRILL       = "SPINONE CAMERA D16 DRILL     2         T238       25"
-	STRING $PREFIN      = "SPINONE CAMERA D16 PREFIN    2         T966       17"
-	STRING $SMUSSO      = "SPINONE CAMERA D16 SMUSSO    1         T806       3"
-	STRING $SEMIFIN     = "SPINONE CAMERA D16 SEMIFIN   2         T983       17"
-	STRING $FIN         = "SPINONE CAMERA D16 FIN       2         T983       17"
+	STRING $DRILL       = "SPINONE CAMERA D16 DRILL      2         T238      25"
+	STRING $PREFIN      = "SPINONE CAMERA D16 PREFIN     2         T966      17"
+	STRING $SMUSSO      = "SPINONE CAMERA D16 SMUSSO     1         T806      3"
+	STRING $SEMIFIN     = "SPINONE CAMERA D16 SEMIFIN    2         T983      17"
+	STRING $FIN         = "SPINONE CAMERA D16 FIN        2         T983      17"
 	$TOOLPATHS = {$DRILL , $PREFIN , $SMUSSO , $SEMIFIN , $FIN}
 	
 	//Clear Toolpaths
@@ -2330,11 +2330,11 @@ FUNCTION SPINONE_CAMERA_D20_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $M
 	//FINtf Procedure              Toolpath            Index       Tool
 	//                              10        20        30        40        50
 	//                     012345678901234567890123456789012345678901234567890
-	STRING $DRILL       = "SPINONE CAMERA D20 DRILL     2         T260       30"
-	STRING $PREFIN      = "SPINONE CAMERA D20 PREFIN    2         T967       23"
-	STRING $SMUSSO      = "SPINONE CAMERA D20 SMUSSO    1         T806       3"
-	STRING $SEMIFIN     = "SPINONE CAMERA D20 SEMIFIN   2         T983       17"
-	STRING $FIN         = "SPINONE CAMERA D20 FIN       2         T983       17"
+	STRING $DRILL       = "SPINONE CAMERA D20 DRILL      2         T260      30"
+	STRING $PREFIN      = "SPINONE CAMERA D20 PREFIN     2         T967      23"
+	STRING $SMUSSO      = "SPINONE CAMERA D20 SMUSSO     1         T806      3"
+	STRING $SEMIFIN     = "SPINONE CAMERA D20 SEMIFIN    2         T983      17"
+	STRING $FIN         = "SPINONE CAMERA D20 FIN        2         T983      17"
 	$TOOLPATHS = {$DRILL , $PREFIN , $SMUSSO , $SEMIFIN , $FIN}
 	
 	//Clear Toolpaths
@@ -2435,11 +2435,11 @@ FUNCTION SPINONE_CAMERA_D24_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $M
 	//FINtf Procedure              Toolpath            Index       Tool
 	//                              10        20        30        40        50
 	//                     012345678901234567890123456789012345678901234567890
-	STRING $DRILL       = "SPINONE CAMERA D24 HELICAL   2         T421      " + $HELICALDEPTH
-	STRING $PREFIN      = "SPINONE CAMERA D24 PREFIN    2         T967      " + $PREFINDEPTH
-	STRING $SMUSSO      = "SPINONE CAMERA D24 SMUSSO    1         T806      3"
-	STRING $SEMIFIN     = "SPINONE CAMERA D24 SEMIFIN   2         T974      " + $SEMIFINDEPTH
-	STRING $FIN         = "SPINONE CAMERA D24 FIN       2         T974      " + $FINDEPTH
+	STRING $DRILL       = "SPINONE CAMERA D24 HELICAL    2         T421      " + $HELICALDEPTH
+	STRING $PREFIN      = "SPINONE CAMERA D24 PREFIN     2         T967      " + $PREFINDEPTH
+	STRING $SMUSSO      = "SPINONE CAMERA D24 SMUSSO     1         T806      3"
+	STRING $SEMIFIN     = "SPINONE CAMERA D24 SEMIFIN    2         T974      " + $SEMIFINDEPTH
+	STRING $FIN         = "SPINONE CAMERA D24 FIN        2         T974      " + $FINDEPTH
 	$TOOLPATHS = {$DRILL , $PREFIN , $SMUSSO , $SEMIFIN , $FIN}
 	
 	//Clear Toolpaths
@@ -2540,11 +2540,11 @@ FUNCTION SPINONE_CAMERA_D30_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $M
 	//FINtf Procedure              Toolpath            Index       Tool
 	//                              10        20        30        40        50
 	//                     012345678901234567890123456789012345678901234567890
-	STRING $DRILL       = "SPINONE CAMERA D30 HELICAL   2         T421      " + $HELICALDEPTH
-	STRING $PREFIN      = "SPINONE CAMERA D30 PREFIN    2         T967      " + $PREFINDEPTH
-	STRING $SMUSSO      = "SPINONE CAMERA D30 SMUSSO    1         T806      3"
-	STRING $SEMIFIN     = "SPINONE CAMERA D30 SEMIFIN   2         T967      " + $SEMIFINDEPTH
-	STRING $FIN         = "SPINONE CAMERA D30 FIN       2         T967      " + $FINDEPTH
+	STRING $DRILL       = "SPINONE CAMERA D30 HELICAL    2         T421      " + $HELICALDEPTH
+	STRING $PREFIN      = "SPINONE CAMERA D30 PREFIN     2         T967      " + $PREFINDEPTH
+	STRING $SMUSSO      = "SPINONE CAMERA D30 SMUSSO     1         T806      3"
+	STRING $SEMIFIN     = "SPINONE CAMERA D30 SEMIFIN    2         T967      " + $SEMIFINDEPTH
+	STRING $FIN         = "SPINONE CAMERA D30 FIN        2         T967      " + $FINDEPTH
 	$TOOLPATHS = {$DRILL , $PREFIN , $SMUSSO , $SEMIFIN , $FIN}
 	
 	//Clear Toolpaths
@@ -2646,7 +2646,7 @@ FUNCTION VITI_CAMERA_D10_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $MATR
 	}
 	
 	//Import all toolpaths
-	IMPORT TEMPLATE PROJECT FILEOPEN "V:\Master Files\Matrex\Powermill\Tamplates\Camera\Viti\M12\VITI CAMERA M10.ptf"
+	IMPORT TEMPLATE PROJECT FILEOPEN "V:\Master Files\Matrex\Powermill\Tamplates\Camera\Viti\M10\VITI CAMERA M10.ptf"
 	
 	//Select Solid to ignore it
 	BLANK UNDO
@@ -3315,11 +3315,11 @@ FUNCTION VITI_SCARICO_D10_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $POR
 		//Non counterbore              Toolpath            Index       Tool    Depth
 		//                              10        20        30        40        50
 		//                     012345678901234567890123456789012345678901234567890
-		STRING $CENTRINO    = "VITI SCARICO M12 DRILL        3         T202      3"
-		STRING $DRILL       = "VITI SCARICO M12 DRILL        3         T231      " + $DEPTH
-		STRING $HEAD        = "VITI SCARICO M12 HEAD         2         T330      15"
-		STRING $SMUSSO      = "VITI SCARICO M12 SMUSSO       1         T369      3"
-		$TOOLPATHS = {$DRILL , $HEAD , $SMUSSO}
+		STRING $CENTRINO    = "VITI SCARICO M10 CENTRINO     3         T202      3"
+		STRING $DRILL       = "VITI SCARICO M10 DRILL        3         T231      " + $DEPTH
+		STRING $HEAD        = "VITI SCARICO M10 HEAD         2         T330      15"
+		STRING $SMUSSO      = "VITI SCARICO M10 SMUSSO       1         T369      3"
+		$TOOLPATHS = {$CENTRINO , $DRILL , $HEAD , $SMUSSO}
 		
 		//Clear Toolpaths
 		FOREACH PACKET IN $TOOLPATHS {
@@ -3334,9 +3334,10 @@ FUNCTION VITI_SCARICO_D10_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $POR
 		//Non counterbore              Toolpath            Index       Tool    Depth
 		//                              10        20        30        40        50
 		//                     012345678901234567890123456789012345678901234567890
-		STRING $DRILL       = "VITI SCARICO M12 DRILL        2         T231      " + $DEPTH
-		STRING $SMUSSO      = "VITI SCARICO M12 SMUSSO       1         T369      3"
-		$TOOLPATHS = {$DRILL , $SMUSSO}
+		STRING $CENTRINO    = "VITI SCARICO M10 CENTRINO     3         T202      3"
+		STRING $DRILL       = "VITI SCARICO M10 DRILL        2         T231      " + $DEPTH
+		STRING $SMUSSO      = "VITI SCARICO M10 SMUSSO       1         T369      3"
+		$TOOLPATHS = {$CENTRINO , $DRILL , $SMUSSO}
 		
 		//Clear Toolpaths
 		FOREACH PACKET IN $TOOLPATHS {
@@ -3547,7 +3548,7 @@ FUNCTION VITI_SCARICO_D16_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $POR
 			}
 		}
 		//Import all toolpaths
-		IMPORT TEMPLATE PROJECT FILEOPEN "V:\Master Files\Matrex\Powermill\Tamplates\Camera\Viti\M12\VITI CAMERA WITH HEAD M12.ptf"
+		IMPORT TEMPLATE PROJECT FILEOPEN "V:\Master Files\Matrex\Powermill\Tamplates\Scarico\Viti\M16\VITI SCARICO WITH HEAD M16.ptf"
 	} ELSE {
 		//Non counterbore              Toolpath            Index       Tool    Depth
 		//                              10        20        30        40        50
@@ -3564,7 +3565,7 @@ FUNCTION VITI_SCARICO_D16_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $POR
 			}
 		}
 		//Import all toolpaths
-		IMPORT TEMPLATE PROJECT FILEOPEN "V:\Master Files\Matrex\Powermill\Tamplates\Camera\Viti\M12\VITI CAMERA M12.ptf"
+		IMPORT TEMPLATE PROJECT FILEOPEN "V:\Master Files\Matrex\Powermill\Tamplates\Scarico\Viti\M16\VITI SCARICO M16.ptf"
 	}
 	
 	//Select Solid to ignore it
@@ -3611,10 +3612,10 @@ FUNCTION VITI_SCARICO_D16_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $POR
 		ACTIVATE Featureset $SETNAME
 		DIALOGS MESSAGE OFF
 		DIALOGS ERROR OFF
-		EDIT FEATURESET $SETNAME SELECT "VITI_CAMERA_M16_1"
-		EDIT FEATURESET $SETNAME SELECT "VITI_CAMERA_M16_2"
-		EDIT FEATURESET $SETNAME SELECT "VITI_CAMERA_M16_3"
-		EDIT FEATURESET $SETNAME SELECT "VITI_CAMERA_M16_4"
+		EDIT FEATURESET $SETNAME SELECT "VITI_SCARICO_M16_1"
+		EDIT FEATURESET $SETNAME SELECT "VITI_SCARICO_M16_2"
+		EDIT FEATURESET $SETNAME SELECT "VITI_SCARICO_M16_3"
+		EDIT FEATURESET $SETNAME SELECT "VITI_SCARICO_M16_4"
 		DIALOGS MESSAGE ON
 		DIALOGS ERROR ON
 		//Calculate

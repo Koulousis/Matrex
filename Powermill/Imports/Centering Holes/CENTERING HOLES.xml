@@ -7,15 +7,15 @@
       <v_vector I="0" J="1" K="0"/>
       <w_vector I="0" J="0" K="1"/>
     </workplane>
-    <compound_hole component="1" hole_definition="hole1" name="CENTERING LEFT">
+    <compound_hole component="1" hole_definition="hole1" name="CENTERING_LEFT">
       <point X="0" Y="0" Z="0"/>
       <axis I="-0" J="-0" K="-1"/>
     </compound_hole>
-    <compound_hole component="1" hole_definition="hole1" name="CENTERING TOP">
+    <compound_hole component="1" hole_definition="hole1" name="CENTERING_TOP">
       <point X="0" Y="0" Z="0"/>
       <axis I="-0" J="-0" K="-1"/>
     </compound_hole>
-    <compound_hole component="1" hole_definition="hole1" name="CENTERING RIGHT">
+    <compound_hole component="1" hole_definition="hole1" name="CENTERING_RIGHT">
       <point X="0" Y="0" Z="0"/>
       <axis I="-0" J="-0" K="-1"/>
     </compound_hole>
