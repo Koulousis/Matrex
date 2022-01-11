@@ -1788,7 +1788,7 @@ FUNCTION SPINE_CAMERA_D16_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $MAT
 		//                              10        20        30        40        50
 		//                     012345678901234567890123456789012345678901234567890
 		STRING $DRILL       = "SPINE CAMERA D16 DRILL        2         T238      25"
-		STRING $PREFIN      = "SPINE CAMERA D16 PREFIN       2         T967      17"
+		STRING $PREFIN      = "SPINE CAMERA D16 PREFIN       2         T966      17"
 		STRING $SMUSSO      = "SPINE CAMERA D16 SMUSSO       1         T806      3 "
 		STRING $SEMIFIN     = "SPINE CAMERA D16 SEMIFIN      2         T973      17"
 		STRING $FIN         = "SPINE CAMERA D16 FIN          2         T973      17"
@@ -3223,7 +3223,7 @@ FUNCTION SPINE_SCARICO_D16_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $PO
 		//SCA Procedure                Toolpath            Index       Tool    Depth
 		//                              10        20        30        40        50
 		//                     012345678901234567890123456789012345678901234567890
-		STRING $DRILL       = "SPINE SCARICO D16 DRILL       2         T228      " + $DEPTH
+		STRING $DRILL       = "SPINE SCARICO D16 DRILL       2         T260      " + $DEPTH
 		STRING $SMUSSO      = "SPINE SCARICO D16 SMUSSO      1         T369      3"
 		$TOOLPATHS = {$DRILL , $SMUSSO}
 		

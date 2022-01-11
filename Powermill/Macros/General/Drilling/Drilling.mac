@@ -135,7 +135,7 @@ FUNCTION GetCompany(OUTPUT STRING $COMPANY) {
 	}
 	IF NOT $COMPANYMEETS {
 		//Ask the user if agree
-		STRING $CONTINUEORNOT = "Die gonna be build for " + $COMPANY + "?"
+		STRING $CONTINUEORNOT = "Opened Template is not recognized for " + $COMPANY  + CRLF + "Die gonna be build for " + $COMPANY + "?"
 		BOOL $COMPANYAGREE = FALSE
 		$COMPANYAGREE = QUERY $CONTINUEORNOT
 
