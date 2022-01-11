@@ -2634,7 +2634,7 @@ FUNCTION VITI_CAMERA_D10_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $MATR
 	//                              10        20        30        40        50
 	//                     012345678901234567890123456789012345678901234567890
 	STRING $CENTRINO    = "VITI CAMERA M10 CENTRINO      2         T202      3"
-	STRING $DRILL       = "VITI CAMERA M10 DRILL         2         T231      " + $DEPTH
+	STRING $DRILL       = "VITI CAMERA M10 DRILL         2         T232      " + $DEPTH
 	STRING $SMUSSO      = "VITI CAMERA M10 SMUSSO        1         T369      3"
 	$TOOLPATHS = {$CENTRINO , $DRILL , $SMUSSO}
 	
@@ -3317,7 +3317,7 @@ FUNCTION VITI_SCARICO_D10_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $POR
 		//                              10        20        30        40        50
 		//                     012345678901234567890123456789012345678901234567890
 		STRING $CENTRINO    = "VITI SCARICO M10 CENTRINO     3         T202      3"
-		STRING $DRILL       = "VITI SCARICO M10 DRILL        3         T231      " + $DEPTH
+		STRING $DRILL       = "VITI SCARICO M10 DRILL        3         T232      " + $DEPTH
 		STRING $HEAD        = "VITI SCARICO M10 HEAD         2         T330      15"
 		STRING $SMUSSO      = "VITI SCARICO M10 SMUSSO       1         T369      3"
 		$TOOLPATHS = {$CENTRINO , $DRILL , $HEAD , $SMUSSO}
@@ -3336,7 +3336,7 @@ FUNCTION VITI_SCARICO_D10_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $POR
 		//                              10        20        30        40        50
 		//                     012345678901234567890123456789012345678901234567890
 		STRING $CENTRINO    = "VITI SCARICO M10 CENTRINO     3         T202      3"
-		STRING $DRILL       = "VITI SCARICO M10 DRILL        2         T231      " + $DEPTH
+		STRING $DRILL       = "VITI SCARICO M10 DRILL        2         T232      " + $DEPTH
 		STRING $SMUSSO      = "VITI SCARICO M10 SMUSSO       1         T369      3"
 		$TOOLPATHS = {$CENTRINO , $DRILL , $SMUSSO}
 		
