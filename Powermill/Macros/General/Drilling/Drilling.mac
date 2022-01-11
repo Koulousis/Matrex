@@ -6,13 +6,6 @@
 //Written at 22/11/2021 for Matrex and Alumat
 //A.K Matrex Cam Office Sindos
 
-//Include Functions
-INCLUDE Centrino.inc
-INCLUDE Layers.inc
-INCLUDE Features.inc
-INCLUDE Templates.inc
-INCLUDE "V:\Master Files\Matrex\Powermill\Tools\ToolsForDrilling.inc"
-INCLUDE "V:\Master Files\Alumat\Powermill\Tools\ToolsForDrilling.inc"
 //Call Functions
 FUNCTION Main()  {
 	UNDRAW STOCKMODEL ALL
@@ -3319,6 +3312,12 @@ FUNCTION CreateHoleFeatureComponentsAndToolpaths(STRING $COMPANY , BOOL $PORTHOL
 
 }
 
-
+//Include Functions
+INCLUDE Centrino.inc
+INCLUDE Layers.inc
+INCLUDE Features.inc
+INCLUDE Templates.inc
+INCLUDE "V:\Master Files\Matrex\Powermill\Tools\ToolsForDrilling.inc"
+INCLUDE "V:\Master Files\Alumat\Powermill\Tools\ToolsForDrilling.inc"
 
 

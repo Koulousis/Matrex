@@ -260,16 +260,16 @@ FUNCTION CENTRINO_MATRICE(STRING $COMPANY , BOOL $TWOPARTS , BOOL $THREEPARTS , 
 	IF ENTITY_EXISTS('Toolpath' , $PATHNAME) {
 		DELETE Toolpath $PATHNAME NOQUIBBLE
 	}
-	IMPORT TEMPLATE PROJECT FILEOPEN "V:\Master Files\Matrex\Powermill\Tamplates\Pozzeto\Centrino\Centrino.ptf"
+	IMPORT TEMPLATE PROJECT FILEOPEN "V:\Master Files\Matrex\Powermill\Tamplates\Scarico\Centrino\Centrino.ptf"
 	
 	//Select Solid to ignore it
 	BLANK UNDO
-	EDIT LEVEL "264" SELECT ALL
+	EDIT LEVEL "20" SELECT ALL
 	
 	//Drill Toolpath
 	ACTIVATE Toolpath $PATHNAME
 	//Workplane
-	ACTIVATE WORKPLANE $WP_POZZETO
+	ACTIVATE WORKPLANE $WP_SCARICO
 	//Depth
 	EDIT DRILL DEPTH $DRILLDEPTH
 	//Tool
