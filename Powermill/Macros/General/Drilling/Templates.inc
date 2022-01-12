@@ -1543,7 +1543,7 @@ FUNCTION SPINE_CAMERA_D10_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $MAT
 		//                              10        20        30        40        50
 		//                     012345678901234567890123456789012345678901234567890
 		STRING $CENTRINO    = "SPINE CAMERA D10 CENTRINO     2         T202      3"
-		STRING $DRILL       = "SPINE CAMERA D10 DRILL        2         T232      15"
+		STRING $DRILL       = "SPINE CAMERA D10 DRILL        2         T232      20"
 		STRING $SMUSSO      = "SPINE CAMERA D10 SMUSSO       1         T369      3 "
 		$TOOLPATHS = {$CENTRINO , $DRILL , $SMUSSO}
 		
@@ -1768,8 +1768,8 @@ FUNCTION SPINE_CAMERA_D16_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $MAT
 		//SCA Procedure                Toolpath            Index       Tool     Depth
 		//                              10        20        30        40        50
 		//                     012345678901234567890123456789012345678901234567890
-		STRING $DRILL       = "SPINE CAMERA D16 DRILL        2         T260     20"
-		STRING $SMUSSO      = "SPINE CAMERA D16 SMUSSO       1         T369     3 "
+		STRING $DRILL       = "SPINE CAMERA D16 DRILL        2         T260      20"
+		STRING $SMUSSO      = "SPINE CAMERA D16 SMUSSO       1         T369      3 "
 		$TOOLPATHS = {$DRILL , $SMUSSO}
 		
 		//Clear Toolpaths
