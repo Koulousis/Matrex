@@ -6,23 +6,9 @@
 //Written at 22/11/2021 for Matrex and Alumat
 //A.K Matrex Cam Office Sindos
 
-//Call Functions
 FUNCTION Main()  {
 	UNDRAW STOCKMODEL ALL
-	//Tamplate Parameters
-	//$TORNITURA
 	
-	//Macro Parameters
-	//Tornitura txt file:    $TORNDATA
-	//Name of the company:   $COMPANY
-	//Type of the Die:       $PORTHOLE $FLAT
-	//Die parts amount:      $TWOPARTS $THREEPARTS
-	//Flat part first:       $ALLARGATORE_FIRST $PIANA_FIRST
-	//Which part of die:     $MANDREL $ALLARGATORE $MATRICE $PIANA $TERZAPIASTRA $SOTTOMATRICE
-	//If collarino exist:    $COLLARINO_CAMERA $COLLARINO_SCARICO
-	//Pack on the schematic: $PACK
-	//Align erosion method:  $MANUAL_ALLIGN $SPINE_ALLIGN
-
 	//Get tornitura as a list
 	STRING LIST $TORNDATA = {}
 	CALL GetTornitura($TORNDATA)
