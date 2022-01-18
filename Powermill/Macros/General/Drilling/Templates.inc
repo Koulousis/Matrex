@@ -1526,7 +1526,7 @@ FUNCTION VITI_POZZETO_D16_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $MAN
 //Matrice and Piana
 //Camera side
 //Toolpath Creation for Spine
-FUNCTION SPINE_CAMERA_D10_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $MATRICE , BOOL $PIANA BOOL $MANUAL_ALLIGN , BOOL $SPINE_ALLIGN , REAL $MATRICEHEIGHT) {
+FUNCTION SPINE_CAMERA_D10_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $MATRICE , BOOL $PIANA , BOOL $ALLARGATORE_FIRST , BOOL $MANUAL_ALLIGN , BOOL $SPINE_ALLIGN , REAL $MATRICEHEIGHT) {
 	//Variables
 	STRING $TOOLNUMBER = ""
 	STRING $NAME = ""
@@ -1640,7 +1640,7 @@ FUNCTION SPINE_CAMERA_D10_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $MAT
 	BLANK UNDO
 }
 
-FUNCTION SPINE_CAMERA_D12_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $MATRICE , BOOL $PIANA BOOL $MANUAL_ALLIGN , BOOL $SPINE_ALLIGN , REAL $MATRICEHEIGHT) {
+FUNCTION SPINE_CAMERA_D12_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $MATRICE , BOOL $PIANA , BOOL $ALLARGATORE_FIRST , BOOL $MANUAL_ALLIGN , BOOL $SPINE_ALLIGN , REAL $MATRICEHEIGHT) {
 	//Variables
 	STRING $TOOLNUMBER = ""
 	STRING $NAME = ""
@@ -1752,7 +1752,7 @@ FUNCTION SPINE_CAMERA_D12_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $MAT
 	BLANK UNDO
 }
 
-FUNCTION SPINE_CAMERA_D16_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $MATRICE , BOOL $PIANA BOOL $MANUAL_ALLIGN , BOOL $SPINE_ALLIGN , REAL $MATRICEHEIGHT) {
+FUNCTION SPINE_CAMERA_D16_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $MATRICE , BOOL $PIANA , BOOL $ALLARGATORE_FIRST , BOOL $MANUAL_ALLIGN , BOOL $SPINE_ALLIGN , REAL $MATRICEHEIGHT) {
 	//Variables
 	STRING $TOOLNUMBER = ""
 	STRING $NAME = ""
@@ -2949,7 +2949,7 @@ FUNCTION SPINE_SCARICO_D10_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $PO
 		//                              10        20        30        40        50
 		//                     012345678901234567890123456789012345678901234567890
 		STRING $CENTRINO    = "SPINE SCARICO D10 CENTRINO    2         T202      3"
-		STRING $DRILL       = "SPINE SCARICO D10 DRILL       2         T232      " + $DEPTH
+		STRING $DRILL       = "SPINE SCARICO D10 DRILL       2         T232      15"
 		STRING $SMUSSO      = "SPINE SCARICO D10 SMUSSO      1         T369      3"
 		$TOOLPATHS = {$CENTRINO , $DRILL , $SMUSSO}
 		
@@ -3061,7 +3061,7 @@ FUNCTION SPINE_SCARICO_D12_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $PO
 		
 		//Import all toolpaths
 		IMPORT TEMPLATE PROJECT FILEOPEN "V:\Master Files\Matrex\Powermill\Tamplates\Scarico\Spine\D12\SPINE SCARICO D12 FINTF.ptf"
-	} ELSEIF $SPINE_DIFFER {
+	} ELSEIF NOT $PIANA_FIRST AND $SPINE_DIFFER {
 		//FINsf Procedure              Toolpath            Index       Tool    Depth
 		//                              10        20        30        40        50
 		//                     012345678901234567890123456789012345678901234567890
@@ -3086,7 +3086,7 @@ FUNCTION SPINE_SCARICO_D12_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $PO
 		//SCA Procedure                Toolpath            Index       Tool    Depth
 		//                              10        20        30        40        50
 		//                     012345678901234567890123456789012345678901234567890
-		STRING $DRILL       = "SPINE SCARICO D12 DRILL       2         T238      " + $DEPTH
+		STRING $DRILL       = "SPINE SCARICO D12 DRILL       2         T238      20"
 		STRING $SMUSSO      = "SPINE SCARICO D12 SMUSSO      1         T369      3"
 		$TOOLPATHS = {$DRILL , $SMUSSO}
 		
@@ -3223,7 +3223,7 @@ FUNCTION SPINE_SCARICO_D16_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $PO
 		//SCA Procedure                Toolpath            Index       Tool    Depth
 		//                              10        20        30        40        50
 		//                     012345678901234567890123456789012345678901234567890
-		STRING $DRILL       = "SPINE SCARICO D16 DRILL       2         T260      " + $DEPTH
+		STRING $DRILL       = "SPINE SCARICO D16 DRILL       2         T260      25"
 		STRING $SMUSSO      = "SPINE SCARICO D16 SMUSSO      1         T369      3"
 		$TOOLPATHS = {$DRILL , $SMUSSO}
 		
@@ -3313,7 +3313,7 @@ FUNCTION VITI_SCARICO_D10_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $POR
 	
 	//List the Toolpaths
 	IF ($PORTHOLE AND $TWOPARTS) OR ($FLAT AND $TWOPARTS AND $ALLARGATORE_FIRST) {
-		//Non counterbore              Toolpath            Index       Tool    Depth
+		//With Head                    Toolpath            Index       Tool    Depth
 		//                              10        20        30        40        50
 		//                     012345678901234567890123456789012345678901234567890
 		STRING $CENTRINO    = "VITI SCARICO M10 CENTRINO     3         T202      3"
@@ -3331,8 +3331,27 @@ FUNCTION VITI_SCARICO_D10_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $POR
 		}
 		//Import all toolpaths
 		IMPORT TEMPLATE PROJECT FILEOPEN "V:\Master Files\Matrex\Powermill\Tamplates\Scarico\Viti\M10\VITI SCARICO WITH HEAD M10.ptf"
+	} ELSEIF $PIANA_FIRST {
+		//With Maschio              Toolpath            Index       Tool    Depth
+		//                              10        20        30        40        50
+		//                     012345678901234567890123456789012345678901234567890
+		STRING $CENTRINO    = "VITI SCARICO M10 CENTRINO     3         T202      3"
+		STRING $DRILL       = "VITI SCARICO M10 DRILL        2         T225      25"
+		STRING $SMUSSO      = "VITI SCARICO M10 SMUSSO       1         T369      3"
+		STRING $MASCHIO     = "VITI SCARICO M10 MASCHIO      1         T701      20"
+		$TOOLPATHS = {$CENTRINO , $DRILL , $SMUSSO , $MASCHIO}
+		
+		//Clear Toolpaths
+		FOREACH PACKET IN $TOOLPATHS {
+		STRING $PATHNAME = RTRIM(SUBSTRING($PACKET , 0 , 29))
+			IF ENTITY_EXISTS('Toolpath' , $PATHNAME) {
+				DELETE Toolpath $PATHNAME NOQUIBBLE
+			}
+		}
+		//Import all toolpaths
+		IMPORT TEMPLATE PROJECT FILEOPEN "V:\Master Files\Matrex\Powermill\Tamplates\Scarico\Viti\M10\VITI SCARICO WITH MASCHIO M10.ptf"
 	} ELSE {
-		//Non counterbore              Toolpath            Index       Tool    Depth
+		//Simple Hole                  Toolpath            Index       Tool    Depth
 		//                              10        20        30        40        50
 		//                     012345678901234567890123456789012345678901234567890
 		STRING $CENTRINO    = "VITI SCARICO M10 CENTRINO     3         T202      3"
@@ -3424,7 +3443,7 @@ FUNCTION VITI_SCARICO_D12_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $POR
 	
 	//List the Toolpaths
 	IF ($PORTHOLE AND $TWOPARTS) OR ($FLAT AND $TWOPARTS AND $ALLARGATORE_FIRST) {
-		//Non counterbore              Toolpath            Index       Tool    Depth
+		//With Head                    Toolpath            Index       Tool    Depth
 		//                              10        20        30        40        50
 		//                     012345678901234567890123456789012345678901234567890
 		STRING $DRILL       = "VITI SCARICO M12 DRILL        3         T238      " + $DEPTH
@@ -3441,8 +3460,26 @@ FUNCTION VITI_SCARICO_D12_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $POR
 		}
 		//Import all toolpaths
 		IMPORT TEMPLATE PROJECT FILEOPEN "V:\Master Files\Matrex\Powermill\Tamplates\Scarico\Viti\M12\VITI SCARICO WITH HEAD M12.ptf"
+	} ELSEIF $PIANA_FIRST {
+		//With Maschio                 Toolpath            Index       Tool    Depth
+		//                              10        20        30        40        50
+		//                     012345678901234567890123456789012345678901234567890
+		STRING $DRILL       = "VITI SCARICO M12 DRILL        2         T228      30"
+		STRING $SMUSSO      = "VITI SCARICO M12 SMUSSO       1         T369      3"
+		STRING $MASCHIO     = "VITI SCARICO M12 MASCHIO      2         T702      24"
+		$TOOLPATHS = {$DRILL , $SMUSSO , $MASCHIO}
+		
+		//Clear Toolpaths
+		FOREACH PACKET IN $TOOLPATHS {
+		STRING $PATHNAME = RTRIM(SUBSTRING($PACKET , 0 , 29))
+			IF ENTITY_EXISTS('Toolpath' , $PATHNAME) {
+				DELETE Toolpath $PATHNAME NOQUIBBLE
+			}
+		}
+		//Import all toolpaths
+		IMPORT TEMPLATE PROJECT FILEOPEN "V:\Master Files\Matrex\Powermill\Tamplates\Scarico\Viti\M12\VITI SCARICO WITH MASCHIO M12.ptf"
 	} ELSE {
-		//Non counterbore              Toolpath            Index       Tool    Depth
+		//Simple Hole                  Toolpath            Index       Tool    Depth
 		//                              10        20        30        40        50
 		//                     012345678901234567890123456789012345678901234567890
 		STRING $DRILL       = "VITI SCARICO M12 DRILL        2         T238      " + $DEPTH
@@ -3533,7 +3570,7 @@ FUNCTION VITI_SCARICO_D16_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $POR
 	
 	//List the Toolpaths
 	IF ($PORTHOLE AND $TWOPARTS) OR ($FLAT AND $TWOPARTS AND $ALLARGATORE_FIRST) {
-		//Non counterbore              Toolpath            Index       Tool    Depth
+		//With Head                    Toolpath            Index       Tool    Depth
 		//                              10        20        30        40        50
 		//                     012345678901234567890123456789012345678901234567890
 		STRING $DRILL       = "VITI SCARICO M16 DRILL        3         T260      " + $DEPTH
@@ -3550,8 +3587,26 @@ FUNCTION VITI_SCARICO_D16_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $POR
 		}
 		//Import all toolpaths
 		IMPORT TEMPLATE PROJECT FILEOPEN "V:\Master Files\Matrex\Powermill\Tamplates\Scarico\Viti\M16\VITI SCARICO WITH HEAD M16.ptf"
+	} ELSEIF $PIANA_FIRST {
+		//With Maschio                 Toolpath            Index       Tool    Depth
+		//                              10        20        30        40        50
+		//                     012345678901234567890123456789012345678901234567890
+		STRING $DRILL       = "VITI SCARICO M16 DRILL        2         T238      40"
+		STRING $SMUSSO      = "VITI SCARICO M16 SMUSSO       1         T369      3"
+		STRING $MASCHIO     = "VITI SCARICO M16 MASCHIO      1         T704      32"
+		$TOOLPATHS = {$DRILL , $SMUSSO , $MASCHIO}
+		
+		//Clear Toolpaths
+		FOREACH PACKET IN $TOOLPATHS {
+		STRING $PATHNAME = RTRIM(SUBSTRING($PACKET , 0 , 29))
+			IF ENTITY_EXISTS('Toolpath' , $PATHNAME) {
+				DELETE Toolpath $PATHNAME NOQUIBBLE
+			}
+		}
+		//Import all toolpaths
+		IMPORT TEMPLATE PROJECT FILEOPEN "V:\Master Files\Matrex\Powermill\Tamplates\Scarico\Viti\M16\VITI SCARICO M16.ptf"
 	} ELSE {
-		//Non counterbore              Toolpath            Index       Tool    Depth
+		//Simple Hole                  Toolpath            Index       Tool    Depth
 		//                              10        20        30        40        50
 		//                     012345678901234567890123456789012345678901234567890
 		STRING $DRILL       = "VITI SCARICO M16 DRILL        2         T260      " + $DEPTH
