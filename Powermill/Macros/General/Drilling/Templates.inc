@@ -3082,11 +3082,29 @@ FUNCTION SPINE_SCARICO_D12_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $PO
 		
 		//Import all toolpaths
 		IMPORT TEMPLATE PROJECT FILEOPEN "V:\Master Files\Matrex\Powermill\Tamplates\Scarico\Spine\D12\SPINE SCARICO D12 FINSF.ptf"
-	} ELSE {
-		//SCA Procedure                Toolpath            Index       Tool    Depth
+	} ELSEIF $PIANA_FIRST {
+		//SCA Procedure FLAT           Toolpath            Index       Tool    Depth
 		//                              10        20        30        40        50
 		//                     012345678901234567890123456789012345678901234567890
 		STRING $DRILL       = "SPINE SCARICO D12 DRILL       2         T238      20"
+		STRING $SMUSSO      = "SPINE SCARICO D12 SMUSSO      1         T369      3"
+		$TOOLPATHS = {$DRILL , $SMUSSO}
+		
+		//Clear Toolpaths
+		FOREACH PACKET IN $TOOLPATHS {
+		STRING $PATHNAME = RTRIM(SUBSTRING($PACKET , 0 , 29))
+			IF ENTITY_EXISTS('Toolpath' , $PATHNAME) {
+				DELETE Toolpath $PATHNAME NOQUIBBLE
+			}
+		}
+		
+		//Import all toolpaths
+		IMPORT TEMPLATE PROJECT FILEOPEN "V:\Master Files\Matrex\Powermill\Tamplates\Scarico\Spine\D12\SPINE SCARICO D12 SCA.ptf"
+	} ELSE {
+		//SCA Procedure PORTHOLE       Toolpath            Index       Tool    Depth
+		//                              10        20        30        40        50
+		//                     012345678901234567890123456789012345678901234567890
+		STRING $DRILL       = "SPINE SCARICO D12 DRILL       2         T238      " + $DEPTH
 		STRING $SMUSSO      = "SPINE SCARICO D12 SMUSSO      1         T369      3"
 		$TOOLPATHS = {$DRILL , $SMUSSO}
 		
