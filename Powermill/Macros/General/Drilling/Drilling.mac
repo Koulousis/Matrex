@@ -77,6 +77,9 @@ FUNCTION Main()  {
 	//Hole Feature Sets Initialization
 	CALL GetHoleFeatureSets($MANDREL , $ALLARGATORE , $MATRICE , $PIANA , $TERZAPIASTRA , $SOTTOMATRICE , $PIANA_FIRST , $TWOPARTS , $THREEPARTS , $COLLARINO_SCARICO , $PACK , $WP_POZZETO , $WP_SCARICO , $WP_USCITA )
 	
+	//Let the user know which holes found
+	CALL HoleReport()
+	
 	//Hole Feature Sets Creation
 	CALL CreateHoleFeatureComponentsAndToolpaths($COMPANY , $PORTHOLE , $FLAT , $TWOPARTS , $THREEPARTS , $ALLARGATORE_FIRST , $PIANA_FIRST , $MANDREL , $ALLARGATORE , $MATRICE , $PIANA , $TERZAPIASTRA , $SOTTOMATRICE , $COLLARINO_CAMERA , $COLLARINO_SCARICO , $MANUAL_ALLIGN , $SPINE_ALLIGN , $MATRICEHEIGHT , $WP_POZZETO , $WP_SCARICO , $WP_USCITA)
 	
@@ -502,6 +505,62 @@ FUNCTION GetHoleFeatureSets(BOOL $MANDREL , BOOL $ALLARGATORE , BOOL $MATRICE , 
 	DEACTIVATE Featureset
 	DIALOGS MESSAGE ON
 	DIALOGS ERROR ON
+	
+}
+
+//Give feedback to user
+FUNCTION HoleReport() {
+	
+	//Which feature set have holes
+	//Fill a list with featuresets which got components
+	STRING LIST $FOUNDSETS = {}
+	STRING $SETNAME = ""
+	STRING $REPORT = ""
+	BOOL $SPINEEXIST = FALSE
+	STRING $SPINENAME = ""
+	FOREACH HOLESET IN FOLDER('Featureset\STANDARD_HOLES') {
+		$SETNAME = HOLESET.NAME
+		IF  SIZE(COMPONENTS(ENTITY('Featureset' , $SETNAME))) {
+			INT ADD = ADD_LAST($FOUNDSETS, $SETNAME)
+		}
+	}
+	
+	//Create report string
+	FOREACH SET IN FOUNDSETS {
+		IF SET != "CENTERING_HOLES" {
+			$REPORT = $REPORT + SET + CRLF
+		}
+		IF SUBSTRING(SET,0,5) == "SPINE" {
+			$SPINEEXIST = TRUE
+			$SPINENAME = SET
+		}
+	}	
+	
+	//Ask the user if the report is fine
+	STRING $CONTINUEORNOT = "The following Feature Sets found:" + CRLF + $REPORT + CRLF + "[Yes] to continue / [No] if something missing"
+	BOOL $REPORTANSWER = FALSE
+	$REPORTANSWER = QUERY $CONTINUEORNOT
+	IF NOT $REPORTANSWER {
+		MESSAGE INFO "Macro aborted"
+		MACRO ABORT
+	}
+	
+	//Check spine coordinates
+	//Check if spine x,y in absolute are equal
+	IF $SPINEEXIST {
+		ACTIVATE Featureset $SPINENAME
+		//XPOS contains all the x positions of all the components of the activated feature set
+		//YPOS contains all the y positions of all the components of the activated feature set
+		REAL LIST XPOS = extract($components(entity('featureset','')),'WPPoint[0]')
+		REAL LIST YPOS = extract($components(entity('featureset','')),'WPPoint[1]')
+		
+		//POS[0] is for the first hole, POS[1] is for the second hole
+		IF (ABS(XPOS[0]) == ABS(XPOS[1])) AND (ABS(YPOS[0]) == ABS(YPOS[1])) {
+			MESSAGE ERROR "Spine coordinates are equal in absolute" + CRLF + "This operation is wrong, fix it with CAD"
+			MESSAGE INFO "Macro Aborted"
+			MACRO ABORT
+		}
+	}
 	
 }
 
