@@ -4,7 +4,7 @@
 //to recognize all type of holes.
 //-------------------------------------------------------
 //Written at 22/11/2021 for Matrex and Alumat
-//A.K Matrex Cam Office Sindoss
+//A.K Matrex Cam Office Sindos
 
 FUNCTION Main()  {
 	UNDRAW STOCKMODEL ALL
