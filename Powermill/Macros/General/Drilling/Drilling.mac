@@ -56,7 +56,9 @@ FUNCTION Main()  {
 	//Define the allign method of the die
 	BOOL $MANUAL_ALLIGN = FALSE 
 	BOOL $SPINE_ALLIGN = FALSE
-	CALL GetAllign($TORNDATA , $PORTHOLE , $FLAT , $MANUAL_ALLIGN , $SPINE_ALLIGN)
+	IF $FLAT {
+		CALL GetAllign($TORNDATA , $PORTHOLE , $FLAT , $MANUAL_ALLIGN , $SPINE_ALLIGN)
+	}
 	
 	//Define the part height
 	REAL $MATRICEHEIGHT = 0
