@@ -12,6 +12,10 @@ FUNCTION Main()  {
 	//Get tornitura as a list
 	STRING LIST $TORNDATA = {}
 	CALL GetTornitura($TORNDATA)
+	
+	//Get the design info a a list
+	STRING LIST $DESIGNDATA = {}
+	CALL GetDesignInfo($DESIGNDATA)
 
 	//Get the working company
 	STRING $COMPANY = ""
@@ -80,7 +84,7 @@ FUNCTION Main()  {
 	CALL GetHoleFeatureSets($MANDREL , $ALLARGATORE , $MATRICE , $PIANA , $TERZAPIASTRA , $SOTTOMATRICE , $PIANA_FIRST , $TWOPARTS , $THREEPARTS , $COLLARINO_SCARICO , $PACK , $WP_POZZETO , $WP_SCARICO , $WP_USCITA )
 	
 	//Let the user know which holes found
-	CALL HoleReport()
+	CALL HoleReport($TORNDATA , $DESIGNDATA)
 	
 	//Hole Feature Sets Creation
 	CALL CreateHoleFeatureComponentsAndToolpaths($TORNDATA , $COMPANY , $PORTHOLE , $FLAT , $TWOPARTS , $THREEPARTS , $ALLARGATORE_FIRST , $PIANA_FIRST , $MANDREL , $ALLARGATORE , $MATRICE , $PIANA , $TERZAPIASTRA , $SOTTOMATRICE , $COLLARINO_CAMERA , $COLLARINO_SCARICO , $MANUAL_ALLIGN , $SPINE_ALLIGN , $MATRICEHEIGHT , $WP_POZZETO , $WP_SCARICO , $WP_USCITA)
@@ -106,6 +110,25 @@ FUNCTION GetTornitura(OUTPUT STRING LIST $TORNDATA) {
 	FILE READ $TORNDATA FROM TXTFILE
 	FILE CLOSE TXTFILE
 
+}
+
+//Read design info as a String List
+FUNCTION GetDesignInfo(OUTPUT STRING LIST $DESIGNDATA) {
+	
+	//Check if the file exists
+	STRING $DIRECTORY = "X:\cad\cam\" + $DIENAME + ".mi.txt"
+	STRING $OPENFILE = "FILE OPEN " + $DIRECTORY + " FOR READ AS TXTFILE"
+	IF NOT FILE_EXISTS($DIRECTORY) {
+		STRING $MESSAGE = $DIENAME + ".mi.txt file does not exist!" + CRLF + "Text file missing, inform CAD"
+		MESSAGE ERROR $MESSAGE
+		MESSAGE INFO "Macro Aborted"
+		MACRO ABORT
+	} ELSE {
+		//Read file and save it on a list $DESIGNDATA
+		DOCOMMAND $OPENFILE
+		FILE READ $DESIGNDATA FROM TXTFILE
+		FILE CLOSE TXTFILE
+	}
 }
 
 //Define the Company between Matrex and Alumat
@@ -527,9 +550,10 @@ FUNCTION GetHoleFeatureSets(BOOL $MANDREL , BOOL $ALLARGATORE , BOOL $MATRICE , 
 }
 
 //Give feedback to user
-FUNCTION HoleReport() {
+FUNCTION HoleReport(STRING LIST $TORNDATA , STRING LIST $DESIGNDATA) {
 	
-	//Which feature set have holes
+	//1)
+	//Give Feedback to the user for which holes found
 	//Fill a list with featuresets which got components
 	STRING LIST $FOUNDSETS = {}
 	STRING $SETNAME = ""
@@ -563,6 +587,7 @@ FUNCTION HoleReport() {
 		MACRO ABORT
 	}
 	
+	//2)
 	//Check spine coordinates
 	//Check if spine x,y in absolute are equal
 	IF $SPINEEXIST {
@@ -579,6 +604,17 @@ FUNCTION HoleReport() {
 			MACRO ABORT
 		}
 	}
+	
+	//3)
+	//Check Puntina Z Position
+	//If they are under Camera or over Nocciolo
+	IF ENTITY_EXISTS('Level', "271") {
+		REAL $CAMERA = SUBSTRING($DESIGNDATA[16],0,2)
+		REAL $NOCCIOLO = SUBSTRING($TORNDATA[11],5,4)
+		
+		//
+	}
+	
 	
 }
 
