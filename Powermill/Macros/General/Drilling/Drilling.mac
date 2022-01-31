@@ -5,7 +5,7 @@
 //-------------------------------------------------------
 //Written at 22/11/2021 for Matrex and Alumat
 //A.K Matrex Cam Office Sindos
-
+                    
 FUNCTION Main()  {
 	UNDRAW STOCKMODEL ALL
 	
@@ -86,7 +86,12 @@ FUNCTION Main()  {
 	//Let the user know which holes found
 	CALL HoleReport($TORNDATA , $DESIGNDATA)
 	
-	//Hole Feature Sets Creation
+	//Puntina Toolpaths Creation
+	IF ENTITY_EXISTS('Level', "271") {
+		CALL CreatePuntina($TORNDATA)
+	}
+	
+	//Hole Feature Sets Creation and Toolpaths
 	CALL CreateHoleFeatureComponentsAndToolpaths($TORNDATA , $COMPANY , $PORTHOLE , $FLAT , $TWOPARTS , $THREEPARTS , $ALLARGATORE_FIRST , $PIANA_FIRST , $MANDREL , $ALLARGATORE , $MATRICE , $PIANA , $TERZAPIASTRA , $SOTTOMATRICE , $COLLARINO_CAMERA , $COLLARINO_SCARICO , $MANUAL_ALLIGN , $SPINE_ALLIGN , $MATRICEHEIGHT , $WP_POZZETO , $WP_SCARICO , $WP_USCITA)
 	
 	TEXTINFO ACCEPT
@@ -612,9 +617,69 @@ FUNCTION HoleReport(STRING LIST $TORNDATA , STRING LIST $DESIGNDATA) {
 		REAL $CAMERA = SUBSTRING($DESIGNDATA[16],0,2)
 		REAL $NOCCIOLO = SUBSTRING($TORNDATA[11],5,4)
 		
-		//
+		//Read Puntina MinZ and MaxZ
+		BLANK UNDO
+		EDIT LEVEL "271" SELECT ALL
+		ACTIVATE Workplane "PL POZZETTO"
+		EDIT BLOCK RESET
+		REAL ARRAY RANGE[] = LIMITS(BLOCK)
+		REAL $MINZ = $RANGE[4]
+		REAL $MAXZ = $RANGE[5]
+		
+		//Check range with camera and nocciolo
+		IF NOT ($CAMERA < $MINZ AND $MINZ < $NOCCIOLO) {
+			MESSAGE ERROR "The circes of puntina holes has wrong Z position"
+			MESSAGE INFO "Macro Aborted"
+			MACRO ABORT
+		}
+		IF NOT ($CAMERA < $MAXZ AND $MAXZ < $NOCCIOLO) {
+			MESSAGE ERROR "The circes of puntina holes has wrong Z position"
+			MESSAGE INFO "Macro Aborted"
+			MACRO ABORT
+		}
+		BLANK UNDO
+		DEACTIVATE WORKPLANE
 	}
 	
+	
+}
+
+//Generate toolpaths for puntina holes
+FUNCTION CreatePuntina(STRING LIST $TORNDATA) {
+	
+	//Create Hole Feature Set
+	STRING $LOGO = "  _______________________________________________\n  |\t\t\t\t     |\n  |\t\t\t\t     |\n  |\t         _______________\t\t     |\n  |\t         |                        |\t\t     |\n  |\t              _________\t\t     |\n  |\t\t\t\t     |\n  |\t         |______________|\t\t     |\n  |\t\t\t\t     |\n  |\t\t\t\t     |\n  |______________________________________________|"
+	REAL $NOCCIOLO = SUBSTRING($TORNDATA[11],5,4)
+	$NOCCIOLO = $NOCCIOLO + $NOCCIOLO%1
+	ACTIVATE Workplane "PL POZZETTO"
+	CREATE IN 'Featureset\STANDARD_HOLES\POZZETO' FEATURESET "PUNTINA"
+	BLANK UNDO
+	EDIT LEVEL "271" SELECT ALL
+	EDIT FEATURECREATE NAME PUNTINA
+	EDIT FEATURECREATE TYPE HOLE EDIT FEATURECREATE FILTER CIRCLES EDIT FEATURECREATE TOPDEFINE ABSOLUTE EDIT FEATURECREATE BOTTOMDEFINE MININPUT EDIT FEATURECREATE CREATEHOLES
+	EDIT FEATURECREATE TOP $NOCCIOLO
+	
+	//Check for wrong diameters
+	REAL LIST PUNTINASIZES = {2 , 2.5 , 3}
+	FOREACH COMPONENT IN COMPONENTS(ENTITY('Featureset' , 'PUNTINA')) {
+		STRING $NAME = COMPONENT.NAME
+		REAL $DIAMETER = COMPONENT.DIAMETER
+		BOOL $CORRECTSIZE = FALSE
+		FOREACH SIZE IN PUNTINASIZES {
+			IF SIZE == $DIAMETER {
+				$CORRECTSIZE = TRUE
+				BREAK
+			}
+		}
+		IF NOT $CORRECTSIZE {
+			MESSAGE INFO "Puntina with wrong hole size found, macro will pause to fix it"
+			EDIT FEATURESET "PUNTINA" DESELECT ALL
+			EDIT FEATURESET "PUNTINA" SELECT $NAME
+			EXPLORER EDIT SELECTED FEATURES
+			MACRO PAUSE $LOGO
+			FORM CANCEL EDITHOLE
+		}
+	}
 	
 }
 
