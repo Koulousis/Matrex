@@ -7,6 +7,24 @@ SWITCH $TOOLNUMBER {
 		$FEED = 40
 		$PLUNGE = 0.5
 	BREAK
+	CASE "T211"
+		$NAME =  "T211 Punta D2,0 H60,0"
+		$SPEED = 2700
+		$FEED = 50
+		$PLUNGE = 0.5
+	BREAK
+	CASE "T212"
+		$NAME =  "T212 Punta D2,5 H60,0"
+		$SPEED = 2500
+		$FEED = 60
+		$PLUNGE = 0.5
+	BREAK
+	CASE "T213"
+		$NAME =  "T213 Punta D3,0 H70,0"
+		$SPEED = 2100
+		$FEED = 60
+		$PLUNGE = 2
+	BREAK
 	CASE "T232"
 		$NAME =  "T232 Punta D11,9 H60,0"
 		$SPEED = 2150
