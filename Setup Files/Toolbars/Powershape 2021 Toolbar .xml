@@ -49,6 +49,7 @@
     <entry base_widget="Ribbon.View.Visibility.BlankMenu.BlankSelected" recursive="true"/>
     <entry base_widget="Ribbon.Visualisation.Format.Materials" recursive="true"/>
     <entry base_widget="Ribbon.Home.Style.Colour" recursive="true"/>
+    <entry base_widget="Ribbon.CurveTools.Manage.ModifyBezier.Merge" recursive="true"/>
   </entry>
 
   <entry type="uiCATEGORY">
@@ -307,6 +308,13 @@
         <resource key="uiUSERDATA" value="V:\Macros_matrex\Notepad++\POWERSHAPE\ZONE_SETUP.mac"/>
         <resource key="uiEDITTYPE" value="MacroButton"/>
       </entry>
+      <entry type="uiPUSHBUTTON">
+        <resource key="uiLABELSTRING" value="Puntines"/>
+        <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\PUNTINA.ico"/>
+        <resource key="uiCOMMAND" value="MACRO RUN &quot;V:\Macros_matrex\Notepad++\POWERSHAPE\PUNTINA_SETUP_MANDREL.mac&quot;"/>
+        <resource key="uiUSERDATA" value="V:\Macros_matrex\Notepad++\POWERSHAPE\PUNTINA_SETUP_MANDREL.mac"/>
+        <resource key="uiEDITTYPE" value="MacroButton"/>
+      </entry>
     </entry>
     <entry type="uiPANEL">
       <resource key="uiLABELSTRING" value="Zone Matrice"/>
@@ -325,10 +333,6 @@
         <resource key="uiUSERDATA" value="V:\Macros_matrex\Notepad++\POWERSHAPE\ZONE_SETUP_MATRICE.mac"/>
         <resource key="uiEDITTYPE" value="MacroButton"/>
       </entry>
-    </entry>
-    <entry type="uiPANEL">
-      <resource key="uiLABELSTRING" value="Drills"/>
-      <resource key="uiRIBPANELALIGNMENT" value="JustifyColumns"/>
       <entry type="uiPUSHBUTTON">
         <resource key="uiLABELSTRING" value="Puntines"/>
         <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\PUNTINA.ico"/>
