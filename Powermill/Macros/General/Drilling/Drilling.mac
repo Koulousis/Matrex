@@ -7,8 +7,9 @@
 //A.K Matrex Cam Office Sindos
 
 FUNCTION Main()  {
-	UNDRAW STOCKMODEL ALL
-	
+	//Create a base block
+	CALL CreateBlock()
+
 	//Get tornitura as a list
 	STRING LIST $TORNDATA = {}
 	CALL GetTornitura($TORNDATA)
@@ -96,6 +97,20 @@ FUNCTION Main()  {
 	
 	TEXTINFO ACCEPT
 	MESSAGE INFO "Macro Finished"
+}
+
+//Create a block to avoid random block from users
+FUNCTION CreateBlock() {
+	
+	BLANK UNDO
+	UNDRAW STOCKMODEL ALL
+	EDIT BLOCKTYPE CYLINDER
+	EDIT BLOCK COORDINATE WORKPLANE
+	EDIT BLOCK RESET
+	EDIT BLOCK XCENTRE "0"
+	EDIT BLOCK YCENTRE "0"
+	BLOCK ACCEPT
+
 }
 
 //Read tornitura file as a String List
