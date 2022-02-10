@@ -393,7 +393,6 @@ FUNCTION SPINONE_POZZETO_D6_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $M
 	//Import all toolpaths
 	IMPORT TEMPLATE PROJECT FILEOPEN "V:\Master Files\Matrex\Powermill\Tamplates\Pozzeto\Spinone\D6\SPINONE POZZETO D6 FINTF.ptf"
 	
-	
 	//Select Solid to ignore it
 	BLANK UNDO
 	EDIT LEVEL "264" SELECT ALL
@@ -511,7 +510,6 @@ FUNCTION SPINONE_POZZETO_D8_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $M
 	
 	//Import all toolpaths
 	IMPORT TEMPLATE PROJECT FILEOPEN "V:\Master Files\Matrex\Powermill\Tamplates\Pozzeto\Spinone\D8\SPINONE POZZETO D8 FINTF.ptf"
-	
 	
 	//Select Solid to ignore it
 	BLANK UNDO
@@ -631,7 +629,6 @@ FUNCTION SPINONE_POZZETO_D10_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $
 	//Import all toolpaths
 	IMPORT TEMPLATE PROJECT FILEOPEN "V:\Master Files\Matrex\Powermill\Tamplates\Pozzeto\Spinone\D10\SPINONE POZZETO D10 FINTF.ptf"
 	
-	
 	//Select Solid to ignore it
 	BLANK UNDO
 	EDIT LEVEL "264" SELECT ALL
@@ -748,7 +745,6 @@ FUNCTION SPINONE_POZZETO_D12_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $
 	
 	//Import all toolpaths
 	IMPORT TEMPLATE PROJECT FILEOPEN "V:\Master Files\Matrex\Powermill\Tamplates\Pozzeto\Spinone\D12\SPINONE POZZETO D12 FINTF.ptf"
-	
 	
 	//Select Solid to ignore it
 	BLANK UNDO
