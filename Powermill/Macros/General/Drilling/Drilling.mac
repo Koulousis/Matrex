@@ -7,6 +7,11 @@
 //A.K Matrex Cam Office Sindos
 
 FUNCTION Main()  {
+	//Drilling Mode
+	BOOL $AUTO = FALSE
+	BOOL $MANUAL = FALSE
+	//CALL DrillingMode($AUTO , $MANUAL)
+	
 	//Create a base block
 	CALL CreateBlock()
 
@@ -85,7 +90,7 @@ FUNCTION Main()  {
 	CALL GetHoleFeatureSets($MANDREL , $ALLARGATORE , $MATRICE , $PIANA , $TERZAPIASTRA , $SOTTOMATRICE , $PIANA_FIRST , $TWOPARTS , $THREEPARTS , $COLLARINO_SCARICO , $PACK , $WP_POZZETO , $WP_SCARICO , $WP_USCITA )
 	
 	//Let the user know which holes found
-	CALL HoleReport($TORNDATA , $DESIGNDATA)
+	CALL HoleReport($TORNDATA , $DESIGNDATA , $AUTO , $MANUAL)
 	
 	//Puntina Toolpaths Creation
 	IF ENTITY_EXISTS('Level', "271") {
@@ -99,11 +104,27 @@ FUNCTION Main()  {
 	MESSAGE INFO "Macro Finished"
 }
 
+//Automatic Mode or Manual Mode
+FUNCTION DrillingMode(OUTPUT BOOL $AUTO , OUTPUT BOOL $MANUAL) {
+	
+	//Ask the user if the procedures will be done Auto or Manual
+	STRING $AUTOORNOT = "Generate drilling toolpaths in Auto Mode?" + CRLF + "[Yes] Auto / [No] Manual"
+	BOOL $AUTOPROCEDURE = FALSE
+	$AUTOPROCEDURE = QUERY $AUTOORNOT
+	IF $AUTOPROCEDURE {
+		$AUTO = TRUE
+	} ELSE {
+		$MANUAL = TRUE
+	}
+	
+}
+
 //Create a block to avoid random block from users
 FUNCTION CreateBlock() {
 	
 	BLANK UNDO
 	UNDRAW STOCKMODEL ALL
+	PICK MODE BOX
 	EDIT BLOCKTYPE CYLINDER
 	EDIT BLOCK COORDINATE WORKPLANE
 	EDIT BLOCK RESET
@@ -661,8 +682,6 @@ FUNCTION HoleReport(STRING LIST $TORNDATA , STRING LIST $DESIGNDATA) {
 		BLANK UNDO
 		DEACTIVATE WORKPLANE
 	}
-	
-	
 }
 
 //Generate toolpaths for puntina holes
