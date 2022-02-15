@@ -1486,9 +1486,9 @@ FUNCTION VITI_POZZETO_D16_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $MAN
 	//FINtf Procedure              Toolpath            Index       Tool
 	//                              10        20        30        40        50
 	//                     012345678901234567890123456789012345678901234567890
-	STRING $DRILL       = "VITI POZZETO M16 DRILL        2         T238      40"
+	STRING $DRILL       = "VITI POZZETO M16 DRILL        2         T238      35"
 	STRING $SMUSSO      = "VITI POZZETO M16 SMUSSO       1         T369      3"
-	STRING $MASCHIO     = "VITI POZZETO M16 MASCHIO      2         T704      32"
+	STRING $MASCHIO     = "VITI POZZETO M16 MASCHIO      2         T704      29"
 	$TOOLPATHS = {$DRILL , $SMUSSO , $MASCHIO}
 	
 	//Clear Toolpaths
