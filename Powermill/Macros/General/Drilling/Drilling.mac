@@ -582,6 +582,15 @@ FUNCTION CreateCentrino(STRING LIST $TORNDATA , STRING $COMPANY , BOOL $PORTHOLE
 			IF $PIECECODEMDALL == 43 OR $PIECECODEMDALL == 50 OR $PIECECODEMDALL == 70 {
 				//Entrata without battuta
 				$ENTRATANON = TRUE
+				IF $SMALL {
+					CALL SmallEntrataMdAllNon
+				} ELSEIF $MEDIUM {
+					CALL MediumEntrataMdAllNon
+				} ELSEIF $LARGE {
+					CALL LargeEntrataMdAllNon
+				} ELSE {
+					MACRO ABORT
+				}
 			} ELSEIF $PIECECODEMDALL == 41 OR $PIECECODEMDALL == 51 OR $PIECECODEMDALL == 71 OR $PIECECODEMDALL == 61 {
 				//Entrata with battuta
 				$ENTRATABATTUTA = TRUE
