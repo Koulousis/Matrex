@@ -145,7 +145,24 @@ FUNCTION GetTornitura(OUTPUT STRING LIST $TORNDATA) {
 			RETURN
 		}
 	}
-	STRING $DIRECTORY = "X:\cad\cam\tornio\"
+	//Check which directory is available to read tornitura file
+	STRING $DIRECTORY = ""
+	STRING $DIRECTORYMATREX = "X:\cad\cam\tornio\"
+	STRING $DIRECTORYALUMAT = "W:\cad\cam\tornio\"
+	BOOL $DIRECTORYMATREXEXIST = DIR_EXISTS($DIRECTORYMATREX)
+	BOOL $DIRECTORYALUMATEXIST = DIR_EXISTS($DIRECTORYALUMAT)
+	
+	IF $DIRECTORYMATREXEXIST {
+		$DIRECTORY = $DIRECTORYMATREX
+	} ELSEIF $DIRECTORYALUMATEXIST {
+		$DIRECTORY = $DIRECTORYALUMAT
+	} ELSE {
+		MESSAGE ERROR "There's no directory available to read tornitura file"
+		MESSAGE INFO "Macro aborted"
+		MACRO ABORT
+	}
+	
+	//Read tornitura file
 	STRING $OPENFILE = "FILE OPEN " + $DIRECTORY + $TORNITURA + ".txt FOR READ AS TXTFILE"
 	DOCOMMAND $OPENFILE
 	FILE READ $TORNDATA FROM TXTFILE
@@ -156,8 +173,25 @@ FUNCTION GetTornitura(OUTPUT STRING LIST $TORNDATA) {
 //Read design info as a String List
 FUNCTION GetDesignInfo(OUTPUT STRING LIST $DESIGNDATA) {
 	
+	//Check which directory is available to read design file
+	STRING $DIRECTORY = ""
+	STRING $DIRECTORYMATREX = "X:\cad\cam\"
+	STRING $DIRECTORYALUMAT = "W:\cad\cam\"
+	BOOL $DIRECTORYMATREXEXIST = DIR_EXISTS($DIRECTORYMATREX)
+	BOOL $DIRECTORYALUMATEXIST = DIR_EXISTS($DIRECTORYALUMAT)
+	
+	IF $DIRECTORYMATREXEXIST {
+		$DIRECTORY = $DIRECTORYMATREX
+	} ELSEIF $DIRECTORYALUMATEXIST {
+		$DIRECTORY = $DIRECTORYALUMAT
+	} ELSE {
+		MESSAGE ERROR "There's no directory available to read tornitura file"
+		MESSAGE INFO "Macro aborted"
+		MACRO ABORT
+	}
+	
 	//Check if the file exists
-	STRING $DIRECTORY = "X:\cad\cam\" + $DIENAME + ".mi.txt"
+	$DIRECTORY = $DIRECTORY + $DIENAME + ".mi.txt"
 	STRING $OPENFILE = "FILE OPEN " + $DIRECTORY + " FOR READ AS TXTFILE"
 	IF NOT FILE_EXISTS($DIRECTORY) {
 		STRING $MESSAGE = $DIENAME + ".mi.txt file does not exist!" + CRLF + "Text file missing, inform CAD"
