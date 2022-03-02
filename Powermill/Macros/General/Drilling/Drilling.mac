@@ -19,13 +19,13 @@ FUNCTION Main()  {
 	STRING LIST $TORNDATA = {}
 	CALL GetTornitura($TORNDATA)
 	
-	//Get the design info a a list
-	STRING LIST $DESIGNDATA = {}
-	CALL GetDesignInfo($DESIGNDATA)
-
 	//Get the working company
 	STRING $COMPANY = ""
 	CALL GetCompany($COMPANY)
+	
+	//Get the design info a a list
+	STRING LIST $DESIGNDATA = {}
+	CALL GetDesignInfo($COMPANY , $DESIGNDATA)
 	
 	//Check if the die is porthole or flat
 	BOOL $PORTHOLE = FALSE
@@ -171,7 +171,7 @@ FUNCTION GetTornitura(OUTPUT STRING LIST $TORNDATA) {
 }
 
 //Read design info as a String List
-FUNCTION GetDesignInfo(OUTPUT STRING LIST $DESIGNDATA) {
+FUNCTION GetDesignInfo(STRING $COMPANY , OUTPUT STRING LIST $DESIGNDATA) {
 	
 	//Check which directory is available to read design file
 	STRING $DIRECTORY = ""
@@ -191,7 +191,16 @@ FUNCTION GetDesignInfo(OUTPUT STRING LIST $DESIGNDATA) {
 	}
 	
 	//Check if the file exists
-	$DIRECTORY = $DIRECTORY + $DIENAME + ".mi.txt"
+	IF $COMPANY == "Matrex" {
+		$DIRECTORY = $DIRECTORY + $DIENAME + ".mi.txt"
+	} ELSEIF $COMPANY == "Alumat" {
+		$DIRECTORY = $DIRECTORY + $CLIENTE + $DIENUMBER + "-" + $BAR + ".mi.txt"
+	} ELSE {
+		MESSAGE ERROR "There's not defined company name"
+		MESSAGE INFO "Macro aborted"
+		MACRO ABORT
+	}
+	
 	STRING $OPENFILE = "FILE OPEN " + $DIRECTORY + " FOR READ AS TXTFILE"
 	IF NOT FILE_EXISTS($DIRECTORY) {
 		STRING $MESSAGE = $DIENAME + ".mi.txt file does not exist!" + CRLF + "Text file missing, inform CAD"

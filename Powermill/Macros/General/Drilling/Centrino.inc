@@ -513,13 +513,17 @@ FUNCTION CSMD4(STRING LIST $TORNDATA , STRING $WP_POZZETO) {
 FUNCTION CSMD5(STRING LIST $TORNDATA) {
 	
 	//Diameter with inclination
-	REAL $DIAMETER = SUBSTRING($TORNDATA[25] , 5 , 5)
+	REAL $DIAMETER = 0
+	$DIAMETER = SUBSTRING($TORNDATA[25] , 5 , 5)
+	IF $DIAMETER == 0 {
+		$DIAMETER = SUBSTRING($TORNDATA[7] , 5 , 5)
+	}
 	DEACTIVATE Workplane
 	ACTIVATE FOLDER "Featureset\STANDARD_HOLES\ENTRATA"
 	EDIT FEATURECREATE NAME   
 	EDIT FEATURESET ; INSERT FILE FILEOPEN "V:\Master Files\Alumat\Powermill\Imports\Centering Holes\Three Holes\CENTERING_HOLES_3H.xml"
 	DELETE Workplane "1"
-	RENAME Featureset ; "CENTERING_HOLES_ENTRATA_ENTRATA"
+	RENAME Featureset ; "CENTERING_HOLES_ENTRATA"
 	DEACTIVATE FOLDER
 	
 	//Define Movements on XYZ
@@ -1432,7 +1436,7 @@ FUNCTION CLMT6() {
 	
 }
 
-//Drilling Toolpath
+//Drilling Toolpath Alumat
 FUNCTION CentrinoToolpathEntrata() {
 	
 	//Toolpaths Variables
@@ -1465,7 +1469,7 @@ FUNCTION CentrinoToolpathEntrata() {
 	//Depth
 	EDIT DRILL DEPTH $DRILLDEPTH
 	//Tool
-	CALL $MatrexToolsForDrilling($TOOLNUMBER , $NAME , $SPEED , $FEED , $PLUNGE)
+	CALL $AlumatToolsForDrilling($TOOLNUMBER , $NAME , $SPEED , $FEED , $PLUNGE)
 	ACTIVATE TOOL $NAME
 	EDIT RPM $SPEED
 	EDIT FRATE $FEED
@@ -1537,7 +1541,7 @@ FUNCTION CentrinoToolpathPozzeto(STRING $WP_POZZETO) {
 	//Depth
 	EDIT DRILL DEPTH $DRILLDEPTH
 	//Tool
-	CALL $MatrexToolsForDrilling($TOOLNUMBER , $NAME , $SPEED , $FEED , $PLUNGE)
+	CALL $AlumatToolsForDrilling($TOOLNUMBER , $NAME , $SPEED , $FEED , $PLUNGE)
 	ACTIVATE TOOL $NAME
 	EDIT RPM $SPEED
 	EDIT FRATE $FEED
