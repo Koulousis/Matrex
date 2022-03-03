@@ -13,7 +13,7 @@ FUNCTION SPINE_POZZETO_D10_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $MA
 	
 	//List the Toolpaths
 	IF $ALLARGATORE AND $MANUAL_ALLIGN {
-		//SGR Procedure                Toolpath            Index       Tool
+		//SGR Procedure                Toolpath            Index       Tool     Depth
 		//                              10        20        30        40        50
 		//                     012345678901234567890123456789012345678901234567890
 		STRING $CENTRINO    = "SPINE POZZETO D10 CENTRINO    2         T202      3"
@@ -33,7 +33,7 @@ FUNCTION SPINE_POZZETO_D10_TEMPLATE(STRING $SETNAME , STRING $COMPANY , BOOL $MA
 		IMPORT TEMPLATE PROJECT FILEOPEN "V:\Master Files\Matrex\Powermill\Tamplates\Pozzeto\Spine\D10\SPINE POZZETO D10 SGR.ptf"
 	} ELSE {
 		
-		//FINtf Procedure              Toolpath            Index  Tool
+		//FINtf Procedure              Toolpath            Index       Tool
 		//                              10        20        30        40        50
 		//                     012345678901234567890123456789012345678901234567890
 		STRING $CENTRINO    = "SPINE POZZETO D10 CENTRINO    2         T202      3"
