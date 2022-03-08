@@ -5,6 +5,7 @@
     <entry base_widget="Ribbon.Home.Delete.Undo" recursive="true"/>
     <entry base_widget="Ribbon.Home.Delete.Redo" recursive="true"/>
     <entry base_widget="Ribbon.Home.Selection.SelMenu.SelPartial" recursive="true"/>
+    <entry base_widget="Ribbon.SolidTools.Manage.State.Active" recursive="true"/>
     <entry base_widget="Ribbon.SolidTools.Manage.Selection.Continuous" recursive="true"/>
     <entry base_widget="Ribbon.Wireframe.Create.LineMenu" recursive="true"/>
     <entry base_widget="Ribbon.Wireframe.Create.ArcMenu" recursive="true"/>
@@ -78,6 +79,7 @@
     <entry type="uiPANEL">
       <resource key="uiLABELSTRING" value="Solid"/>
       <resource key="uiRIBPANELALIGNMENT" value="JustifyColumns"/>
+      <entry base_widget="Ribbon.SolidTools.Manage.State.Active" recursive="true"/>
       <entry base_widget="Ribbon.Solid.Create.Extrusion" recursive="true"/>
       <entry base_widget="Ribbon.Solid.Create.FromItemsMenu.FromItems" recursive="true"/>
       <entry type="uiPUSHBUTTON">
@@ -110,7 +112,6 @@
       <resource key="uiRIBPANELALIGNMENT" value="JustifyColumns"/>
       <entry base_widget="Ribbon.Surface.Create.Extrusion" recursive="true"/>
       <entry base_widget="Ribbon.Surface.Create.SmartSurf" recursive="true"/>
-      <entry base_widget="Ribbon.SurfaceTools.Manage.Modify.Break" recursive="true"/>
     </entry>
     <entry type="uiPANEL">
       <resource key="uiLABELSTRING" value="Workplane"/>
@@ -344,6 +345,7 @@
     <entry type="uiPANEL">
       <resource key="uiLABELSTRING" value="Powermill Transfer"/>
       <resource key="uiRIBPANELALIGNMENT" value="JustifyColumns"/>
+      <entry base_widget="Ribbon.Home.Company.PowerMill" recursive="true"/>
       <entry type="uiPUSHBUTTON">
         <resource key="uiLABELSTRING" value="MD/ALL"/>
         <resource key="uiBITMAP" value="V:\Macros_matrex\ICONS\MD-ALL EXPORT.ico"/>
