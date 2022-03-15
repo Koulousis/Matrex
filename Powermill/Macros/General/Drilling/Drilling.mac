@@ -480,11 +480,11 @@ FUNCTION CreateCentrino(STRING LIST $TORNDATA , STRING $COMPANY , BOOL $PORTHOLE
 	//Define Variables depending on the piece and Call the corresponding Function
 	IF $COMPANY == "Matrex" {
 		IF $MANDREL {
-			//Diameter from battuta
-			REAL $DIAMETER = SUBSTRING($TORNDATA[23] , 5 , 5)
+			//Diameter from inclination
+			REAL $DIAMETER = SUBSTRING($TORNDATA[25] , 5 , 5)
 			IF $DIAMETER == 0 {
-				//Diameter from inclination
-				$DIAMETER = SUBSTRING($TORNDATA[25] , 5 , 5)
+				//Diameter from battuta
+				$DIAMETER = SUBSTRING($TORNDATA[23] , 5 , 5)
 				IF $DIAMETER == 0 {
 					//Diameter total
 					$DIAMETER = SUBSTRING($TORNDATA[7] , 5 , 5)
