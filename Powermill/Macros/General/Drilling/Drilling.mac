@@ -810,10 +810,11 @@ FUNCTION GetHoleFeatureSets(BOOL $MANDREL , BOOL $ALLARGATORE , BOOL $MATRICE , 
 	IF $MANDREL OR $ALLARGATORE {
 		//Create Hole Feature Sets POZZETTO Side but first check if the right workplane exist
 		ACTIVATE WORKPLANE $WP_POZZETO
-		CALL InitializeSpinePozzetoSet($TWOPARTS , $THREEPARTS , $PACK)
-		CALL InitializeSpinonePozzetoSet($TWOPARTS , $THREEPARTS , $PACK)
-		CALL InitializeVitiPozzetoSet($TWOPARTS , $THREEPARTS , $PACK)
-		CALL InitializeSollevatorePozzetoSet($TWOPARTS , $THREEPARTS , $PACK)
+		//CALL InitializeSpinePozzetoSet($TWOPARTS , $THREEPARTS , $PACK)
+		CALL InitializeSpinePozzetoSet($TWOPARTS , $THREEPARTS , $PACK , $WP_POZZETO)
+		CALL InitializeSpinonePozzetoSet($TWOPARTS , $THREEPARTS , $PACK , $WP_POZZETO)
+		CALL InitializeVitiPozzetoSet($TWOPARTS , $THREEPARTS , $PACK , $WP_POZZETO)
+		CALL InitializeSollevatorePozzetoSet($TWOPARTS , $THREEPARTS , $PACK , $WP_POZZETO)
 	} ELSEIF $MATRICE OR $PIANA {
 		//Create Hole Feature Sets CAMERA Side
 		DEACTIVATE Workplane
