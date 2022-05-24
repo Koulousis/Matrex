@@ -961,19 +961,19 @@ FUNCTION HoleReport(STRING LIST $TORNDATA , STRING LIST $DESIGNDATA) {
 	//2)
 	//Check spine coordinates
 	//Check if spine x,y in absolute are equal
-	IF $SPINEEXIST {
-		ACTIVATE Featureset $SPINENAME
-		//XPOS contains all the x positions of all the components of the activated feature set
-		//YPOS contains all the y positions of all the components of the activated feature set
-		REAL LIST XPOS = extract($components(entity('featureset','')),'WPPoint[0]')
-		REAL LIST YPOS = extract($components(entity('featureset','')),'WPPoint[1]')
-		
-		//POS[0] is for the first hole, POS[1] is for the second hole
-		IF (ABS(XPOS[0]) == ABS(XPOS[1])) AND (ABS(YPOS[0]) == ABS(YPOS[1])) {
-			MESSAGE ERROR "Spine coordinates are equal in absolute" + CRLF + "This operation is wrong, fix it with CAD"
-			MESSAGE INFO "Macro Aborted"
-			MACRO ABORT
-		}
+//	IF $SPINEEXIST {
+//		ACTIVATE Featureset $SPINENAME
+//		//XPOS contains all the x positions of all the components of the activated feature set
+//		//YPOS contains all the y positions of all the components of the activated feature set
+//		REAL LIST XPOS = extract($components(entity('featureset','')),'WPPoint[0]')
+//		REAL LIST YPOS = extract($components(entity('featureset','')),'WPPoint[1]')
+//		
+//		//POS[0] is for the first hole, POS[1] is for the second hole
+//		IF (ABS(XPOS[0]) == ABS(XPOS[1])) AND (ABS(YPOS[0]) == ABS(YPOS[1])) {
+//			MESSAGE ERROR "Spine coordinates are equal in absolute" + CRLF + "This operation is wrong, fix it with CAD"
+//			MESSAGE INFO "Macro Aborted"
+//			MACRO ABORT
+//		}
 	}
 	
 	//3)
